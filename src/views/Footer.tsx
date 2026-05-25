@@ -65,7 +65,12 @@ export default async function Footer({ lng }: { lng: string }) {
                         </Link>
                     </HStack>
 
-                    <HStack gap={6}>
+                    <Stack
+                        gap={6}
+                        wrap={'wrap'}
+                        direction={{ base: 'column', sm: 'row' }}
+                        alignItems={{ base: 'flex-start', md: 'center' }}
+                    >
                         {MenuOptions.map((option, i) => (
                             <Link
                                 key={i}
@@ -74,20 +79,18 @@ export default async function Footer({ lng }: { lng: string }) {
                                 {t(`nav.${option.label}`)}
                             </Link>
                         ))}
-                    </HStack>
+                    </Stack>
                 </HStack>
 
                 <HStack
                     fontSize={'sm'}
                     color={'shark.muted'}
-                    textAlign={'center'}
                     borderTop={'1px solid'}
                     borderColor={'shark.border'}
                     pt={4}
-                    justifyContent={'space-between'}
+                    justifyContent={'center'}
                 >
-                    <Text>{new Date().getFullYear()} © Joaht Vera. All rights reserved.</Text>
-                    <Text>Designed and built by me.</Text>
+                    <Text>{new Date().getFullYear()} © Joaht Vera. All rights reserved. Designed and built by me.</Text>
                 </HStack>
             </Stack>
         </Container>

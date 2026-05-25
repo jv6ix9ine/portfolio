@@ -1,4 +1,4 @@
-import { Drawer, Button, Portal, CloseButton, IconButton, Box, Text } from '@chakra-ui/react';
+import { Drawer, Portal, CloseButton, IconButton, Box, Text } from '@chakra-ui/react';
 import { LuMenu } from 'react-icons/lu';
 import Logo from './Logo';
 import Navigation from './Navigation';

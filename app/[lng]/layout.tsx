@@ -36,7 +36,7 @@ type RootLayoutProps = {
 
 export default async function RootLayout({ children, params }: Readonly<RootLayoutProps>) {
     const { lng } = await params;
-    const { i18n, t } = await getT('', { lng });
+    const { i18n } = await getT('', { lng });
     const resources = getResources(i18n);
 
     return (

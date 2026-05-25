@@ -3,7 +3,7 @@ import { getT } from 'next-i18next/server';
 import { LuArrowDown } from 'react-icons/lu';
 
 export default async function Hero({ lng }: { lng: string }) {
-    const { t } = await getT('', { lng });
+    const {  } = await getT('', { lng });
 
     return (
         <Container

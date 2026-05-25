@@ -26,7 +26,7 @@ const customConfig = defineConfig({
                     contrast: { value: {base: '{colors.shark.50}', _dark: '{colors.shark.800}'} },
                     fg: { value: {base: '{colors.shark.800}', _dark: '{colors.shark.200}'} },
                     muted: { value: {base: '{colors.shark.600}', _dark: '{colors.shark.300}'} },
-                    subtle: { value: {base: '{colors.shark.100}', _dark: '{colors.shark.900}'} },
+                    subtle: { value: {base: '{colors.shark.100}', _dark: '{colors.shark.800}'} },
                     emphasized: { value: {base: '{colors.shark.300}', _dark: '{colors.shark.700}'} },
                     focusRing: { value: '{colors.shark.400}' },
                     border: { value: { base: '{colors.shark.200}', _dark: '{colors.shark.700}' } },

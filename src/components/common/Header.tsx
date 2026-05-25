@@ -1,5 +1,5 @@
 'use client';
-import { AbsoluteCenter, Box, Button, Container, DownloadTrigger, HStack, Link } from '@chakra-ui/react';
+import { AbsoluteCenter, Box, Button, Container, DownloadTrigger, HStack } from '@chakra-ui/react';
 import Logo from './Logo';
 import Menu from './Menu';
 import { Fragment, useEffect, useRef, useState } from 'react';
@@ -41,10 +41,8 @@ export default function Header() {
                     colorPalette={'shark'}
                     bgColor={'colorPalette.bg/40'}
                     backdropFilter='blur(5px)'
-                    // border={isSticky ? '1px solid var(--chakra-colors-shark-200)' : 'none'}
-                    borderWidth={isSticky ? '1px' : 'none'}
-                    borderColor={'colorPalette.border'}
-                    rounded={isSticky ? '3xl' : 'none'}
+                    borderWidth={isSticky ? '0.5px' : undefined}
+                    rounded={isSticky ? '3xl' : undefined}
                     px={4}
                     position='relative'
                 >
@@ -67,8 +65,10 @@ export default function Header() {
                                     asChild
                                 >
                                     <Button
-                                        variant='outline'
+                                        variant={isSticky ? 'ghost' : 'outline'}
                                         rounded={'2xl'}
+                                        colorPalette={'shark'}
+                                        transition={'all 0.2 easeInOut'}
                                     >
                                         {t('download')}
                                     </Button>
