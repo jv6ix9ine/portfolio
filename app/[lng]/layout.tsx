@@ -38,7 +38,7 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
     const { lng } = await params;
     const { i18n, t } = await getT('', { lng });
     const resources = getResources(i18n);
-    
+
     return (
         <html
             lang={lng}
@@ -51,7 +51,6 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
                     resources={resources}
                 >
                     <Provider>
-                        <h1>{t('welcome')}</h1>
                         {children}
                     </Provider>
                 </I18nProvider>

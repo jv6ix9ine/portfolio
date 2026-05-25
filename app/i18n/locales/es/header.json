@@ -1,0 +1,9 @@
+{
+    "nav": {
+        "home": "Inicio",
+        "experience": "Experiencia",
+        "projects": "Proyectos",
+        "contact": "Contacto"
+    },
+    "download": "Descargar CV"
+}

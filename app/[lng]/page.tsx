@@ -1,6 +1,6 @@
-
+import Header from '@/components/common/Header';
 import Hero from '@/views/Hero';
-import { Fragment } from 'react';
+import { Box } from '@chakra-ui/react';
 
 type HomeProps = {
     params: Promise<{ lng: string }>;
@@ -9,8 +9,9 @@ type HomeProps = {
 export default async function Home({ params }: HomeProps) {
     const { lng } = await params;
     return (
-        <Fragment>
-            <Hero lng={lng}/>
-        </Fragment>
+        <Box as='main' colorPalette='shark' bgColor='colorPalette.bg'>
+            <Header />
+            <Hero lng={lng} />
+        </Box>
     );
 }

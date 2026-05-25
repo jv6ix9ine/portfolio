@@ -1,0 +1,9 @@
+{
+    "nav": {
+        "home": "Home",
+        "projects": "Projects",
+        "experience": "Experience",
+        "contact": "Contact"
+    },
+    "download": "Download CV"
+}
