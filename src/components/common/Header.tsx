@@ -31,7 +31,7 @@ export default function Header() {
         <Fragment>
             <div ref={sentinelRef} />
             <motion.header
-                style={{ position: 'sticky', top: 0, zIndex: 10, fontFamily: 'var(--font-google-sans)' }}
+                style={{ position: 'sticky', top: 0, zIndex: 50, fontFamily: 'var(--font-google-sans)' }}
                 animate={{
                     padding: isSticky ? '0.75rem' : '0',
                 }}

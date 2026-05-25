@@ -67,7 +67,7 @@ export default async function Hero({ lng }: { lng: string }) {
                     Construyo soluciones digitales escalables con visión técnica y liderazgo.
                 </Text>
 
-                <HStack>
+                <HStack zIndex={10}>
                     <Button
                         variant='outline'
                         rounded={'lg'}
