@@ -1,4 +1,5 @@
 import Header from '@/components/common/Header';
+import Footer from '@/views/Footer';
 import Hero from '@/views/Hero';
 import { Box } from '@chakra-ui/react';
 
@@ -12,6 +13,7 @@ export default async function Home({ params }: HomeProps) {
         <Box as='main' colorPalette='shark' bgColor='colorPalette.bg'>
             <Header />
             <Hero lng={lng} />
+            <Footer lng={lng} />
         </Box>
     );
 }

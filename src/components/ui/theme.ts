@@ -29,7 +29,7 @@ const customConfig = defineConfig({
                     subtle: { value: {base: '{colors.shark.100}', _dark: '{colors.shark.900}'} },
                     emphasized: { value: {base: '{colors.shark.300}', _dark: '{colors.shark.700}'} },
                     focusRing: { value: '{colors.shark.400}' },
-                    border: { value: { base: '{colors.shark.200}', _dark: '{colors.shark.800}' } },
+                    border: { value: { base: '{colors.shark.200}', _dark: '{colors.shark.700}' } },
                     bg: { value: { base: '{colors.shark.50}', _dark: '{colors.shark.900}' } },
                 },
             },

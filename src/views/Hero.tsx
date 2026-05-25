@@ -97,8 +97,9 @@ export default async function Hero({ lng }: { lng: string }) {
                 transform={{ base: 'translateX(50%) scaleX(-1)', md: 'scaleX(-1)' }}
                 bottom={0}
                 pointerEvents={'none'}
-                height={{base: '50%', md: '120%'}}
+                height={{base: '50%', md: '100%', lg: '120%'}}
                 objectFit={'contain'}
+                transition={'all 0.2s ease-in-out'}
             />
         </Container>
     );

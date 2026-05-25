@@ -2,7 +2,7 @@ import { Button, Link, Stack } from '@chakra-ui/react';
 import { useT } from 'next-i18next/client';
 import { LuAppWindow, LuBriefcaseBusiness, LuHouse, LuPhone } from 'react-icons/lu';
 
-const MenuOptions = [
+export const MenuOptions = [
     { label: 'home', href: '/', icon: <LuHouse /> },
     { label: 'projects', href: '/#projects', icon: <LuAppWindow /> },
     { label: 'experience', href: '/#experience', icon: <LuBriefcaseBusiness /> },

@@ -41,9 +41,10 @@ export default function Header() {
                     colorPalette={'shark'}
                     bgColor={'colorPalette.bg/40'}
                     backdropFilter='blur(5px)'
-                    border={isSticky ? '1px solid var(--chakra-colors-shark-200)' : 'none'}
+                    // border={isSticky ? '1px solid var(--chakra-colors-shark-200)' : 'none'}
+                    borderWidth={isSticky ? '1px' : 'none'}
+                    borderColor={'colorPalette.border'}
                     rounded={isSticky ? '3xl' : 'none'}
-                    transition='all 0.2s ease-in-out'
                     px={4}
                     position='relative'
                 >
