@@ -13,9 +13,6 @@ export default async function Hero({ lng }: { lng: string }) {
                 <Button variant="solid" fontFamily="var(--font-lora)">
                     {t('welcome')}
                 </Button>
-                <Button variant="ghost">
-                    {t('welcome')}
-                </Button>
             </Stack>
         </div>
     );
