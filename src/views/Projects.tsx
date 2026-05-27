@@ -4,19 +4,13 @@ import {
     Box,
     Button,
     Card,
-    Center,
     Container,
     Grid,
-    Group,
     Heading,
-    HStack,
-    Icon,
     Image,
     Link,
-    Text,
 } from '@chakra-ui/react';
-import { LuArrowRight, LuArrowUpRight, LuExternalLink } from 'react-icons/lu';
-// import React from 'react'
+import { LuArrowUpRight, LuExternalLink } from 'react-icons/lu';
 
 export default function Projects() {
     return (
@@ -225,27 +219,12 @@ export default function Projects() {
                                     <Avatar.Fallback name='Unity' />
                                     <Avatar.Image src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-plain.svg' />
                                 </Avatar.Root>
-
-                                {/* <Avatar.Root bgColor='white'>
-                                    <Avatar.Fallback name='Node' />
-                                    <Avatar.Image src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' />
-                                </Avatar.Root>
-
-                                <Avatar.Root bgColor='white'>
-                                    <Avatar.Fallback name='Tailwind CSS' />
-                                    <Avatar.Image src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' />
-                                </Avatar.Root>
-                                <Avatar.Root bgColor='white'>
-                                    <Avatar.Fallback name='TypeScript' />
-                                    <Avatar.Image src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' />
-                                </Avatar.Root> */}
                             </AvatarGroup>
                         </Card.Body>
                         <Card.Footer gap='2'>
                             <Button
                                 asChild
                                 colorPalette='shark'
-                                // variant='ghost'
                             >
                                 <Link
                                     href='https://youtu.be/Ea8i6_lvfvQ'

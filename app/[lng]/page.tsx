@@ -1,6 +1,7 @@
 import Header from '@/components/common/Header';
 import Footer from '@/views/Footer';
 import Hero from '@/views/Hero';
+import HowIWork from '@/views/HowIWork';
 import Metrics from '@/views/Metrics';
 import Projects from '@/views/Projects';
 import { Box } from '@chakra-ui/react';
@@ -17,6 +18,8 @@ export default async function Home({ params }: HomeProps) {
             <Hero lng={lng} />
             <Metrics />
             <Projects />
+            <HowIWork />
+        
             <Footer lng={lng} />
         </Box>
     );
