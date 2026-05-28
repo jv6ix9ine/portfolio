@@ -1,4 +1,5 @@
 import '../globals.css';
+import 'lenis/dist/lenis.css'
 import { I18nProvider } from 'next-i18next/client';
 import { initServerI18next, getT, getResources, generateI18nStaticParams } from 'next-i18next/server';
 import { Provider } from '@/components/ui/provider';
@@ -6,6 +7,8 @@ import { ReactNode } from 'react';
 import i18nConfig from '../i18n/config';
 import type { Metadata } from 'next';
 import { elmsSans, googleSans } from '../fonts';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import SmoothScrolling from '@/components/animations/SmoothScrolling';
 
 initServerI18next(i18nConfig);
 
@@ -35,6 +38,8 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
             suppressHydrationWarning
         >
             <body>
+                <SpeedInsights />
+                <SmoothScrolling />
                 <I18nProvider
                     language={lng}
                     resources={resources}
