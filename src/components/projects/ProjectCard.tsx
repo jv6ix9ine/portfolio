@@ -30,7 +30,12 @@ export default function ProjectCard({
             overflow='hidden'
             style={{ borderRadius: '1rem' }}
         >
-            <Box position={'relative'} aspectRatio={'16 / 9'} width={'full'} overflow={'hidden'}>
+            <Box
+                position={'relative'}
+                aspectRatio={'16 / 9'}
+                width={'full'}
+                overflow={'hidden'}
+            >
                 <MotionImage
                     src={imageUrl}
                     alt={`Screenshot of ${title} website`}
@@ -49,13 +54,14 @@ export default function ProjectCard({
 
                 <AvatarGroup
                     gap='0'
-                    spaceX='-3'
+                    spaceX='-2'
                     size='xs'
                 >
                     {technologies.map((tech: { name: string; icon: string }) => (
                         <Avatar.Root
                             key={tech.name}
-                            bgColor='white'
+                            colorPalette='gray'
+                            backgroundColor={'bg'}
                         >
                             <Avatar.Fallback name={tech.name} />
                             <Avatar.Image src={tech.icon} />

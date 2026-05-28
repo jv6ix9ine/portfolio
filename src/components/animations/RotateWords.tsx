@@ -32,7 +32,7 @@ export function RotateWords({
         <Box
             width={'fit-content'}
             display={'flex'}
-            gap={2}
+            gap={3}
             {...boxProps}
         >
             {text}{' '}

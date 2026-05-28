@@ -1,4 +1,5 @@
 import Header from '@/components/common/Header';
+import Experience from '@/views/Experience';
 import Footer from '@/views/Footer';
 import Hero from '@/views/Hero';
 import HowIWork from '@/views/HowIWork';
@@ -15,7 +16,6 @@ export default async function Home({ params }: HomeProps) {
     return (
         <Box
             as='main'
-            // colorPalette='gray'
             bgColor='bg.subtle'
             fontFamily='var(--font-elms-sans)'
         >
@@ -24,7 +24,7 @@ export default async function Home({ params }: HomeProps) {
             <Metrics />
             <Projects />
             <HowIWork />
-
+            <Experience />
             <Footer lng={lng} />
         </Box>
     );
