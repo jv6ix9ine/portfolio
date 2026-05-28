@@ -5,11 +5,11 @@ import Navigation from './Navigation';
 
 export default function Menu() {
     return (
-        <Drawer.Root size='full'>
+        <Drawer.Root size='full' trapFocus={false} >
             <Drawer.Trigger asChild>
                 <IconButton
                     variant={'ghost'}
-                    colorPalette={'shark'}
+                    colorPalette={'gray'}
                     aria-label='Menu'
                     hideFrom={'md'}
                 >
@@ -19,27 +19,22 @@ export default function Menu() {
             <Portal>
                 <Drawer.Backdrop />
                 <Drawer.Positioner>
-                    <Drawer.Content>
+                    <Drawer.Content fontFamily={'var(--font-elms-sans)'}>
                         <Drawer.Header>
                             <Logo />
-                            {/* <Drawer.Title>Drawer Title</Drawer.Title> */}
                         </Drawer.Header>
                         <Drawer.Body>
                             <Box
-                                fontFamily={'var(--font-google-sans)'}
                                 fontSize={'2xl'}
-                                color={'shark.fg'}
+                                color={'gray.fg'}
                             >
                                 <Navigation />
                             </Box>
                         </Drawer.Body>
                         <Drawer.Footer>
-                            {/* <Button variant='outline'>Cancel</Button>
-                            <Button>Save</Button> */}
                             <Text
                                 fontSize={'sm'}
-                                color={'shark.muted'}
-                                fontFamily={'var(--font-google-sans)'}
+                                color={'gray.500'}
                                 textAlign={'center'}
                                 width={'full'}
                             >

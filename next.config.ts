@@ -15,6 +15,18 @@ const nextConfig: NextConfig = {
         ];
     },
     allowedDevOrigins: ['192.168.100.29'],
+    images: {
+        remotePatterns: [
+            new URL('https://res.cloudinary.com/**'),
+            new URL('https://ipcdn-web.apple.com/**'),
+            {
+                protocol: 'https',
+                hostname: '**.**.**',
+                port: '',
+                pathname: '/**',
+            },
+        ],
+    },
 };
 
 export default nextConfig;

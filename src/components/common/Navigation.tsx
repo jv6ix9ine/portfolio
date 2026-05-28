@@ -13,6 +13,7 @@ export default function Navigation() {
     const { t } = useT('header');
     return (
         <Stack
+            as='nav'
             height={'full'}
             gap={{ base: 10, md: 6 }}
             direction={{ base: 'column', md: 'row' }}
@@ -30,10 +31,10 @@ export default function Navigation() {
                 </Link>
             ))}
             <Button
-                colorPalette={'shark'}
+                colorPalette={'gray'}
                 size={'lg'}
                 hideFrom={'md'}
-                rounded={'xl'}
+                rounded={'2xl'}
             >
                 {t('download')}
             </Button>

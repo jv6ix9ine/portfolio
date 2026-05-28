@@ -31,22 +31,22 @@ export default function Header() {
         <Fragment>
             <div ref={sentinelRef} />
             <motion.header
-                style={{ position: 'sticky', top: 0, zIndex: 50, fontFamily: 'var(--font-google-sans)' }}
+                style={{ position: 'sticky', top: 0, zIndex: 50 }}
                 animate={{
                     padding: isSticky ? '0.75rem' : '0',
                 }}
                 transition={{ duration: 0.2, ease: 'easeInOut', type: 'spring', damping: 20, stiffness: 300 }}
             >
                 <Box
-                    colorPalette={'shark'}
-                    bgColor={'colorPalette.bg/40'}
+                    
+                    bgColor={'bg.subtle/40'}
                     backdropFilter='blur(5px)'
                     borderWidth={isSticky ? '0.5px' : undefined}
                     rounded={isSticky ? '3xl' : undefined}
                     px={4}
                     position='relative'
                 >
-                    <Container maxWidth='7xl' >
+                    <Container maxWidth='7xl'>
                         <HStack
                             height='16'
                             justifyContent='space-between'
@@ -67,7 +67,7 @@ export default function Header() {
                                     <Button
                                         variant={isSticky ? 'ghost' : 'outline'}
                                         rounded={'2xl'}
-                                        colorPalette={'shark'}
+                                        colorPalette={'gray'}
                                         transition={'all 0.2 easeInOut'}
                                     >
                                         {t('download')}

@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatedNumber } from '@/components/common/AnimatedNumber';
+import { AnimatedNumber } from '@/components/animations/AnimatedNumber';
 import { Box, Container, Grid, Stack, Text } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -33,8 +33,8 @@ export default function Metrics() {
     return (
         <Box
             as='section'
-            bgColor={'shark.subtle'}
-            color={'shark.fg'}
+            bgColor={'bg.muted'}
+            color={'gray.fg'}
             ref={sectionRef}
         >
             <Container
@@ -44,8 +44,6 @@ export default function Metrics() {
             >
                 <Grid
                     templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }}
-                    bgColor={'shark.subtle'}
-                    fontFamily={'var(--font-google-sans)'}
                     justifyContent={'center'}
                     textAlign={'center'}
                 >
@@ -68,6 +66,7 @@ export default function Metrics() {
                         justifyContent={'center'}
                         borderLeftWidth={{ base: 0, md: 1 }}
                         borderTopWidth={{ base: 1, md: 0 }}
+                        // borderColor={'gray.focusRing'}
                     >
                         <Text fontSize={'7xl'}>
                             +
@@ -84,6 +83,7 @@ export default function Metrics() {
                         justifyContent={'center'}
                         borderLeftWidth={{ base: 0, lg: 1 }}
                         borderTopWidth={{ base: 1, lg: 0 }}
+                        // borderColor={'gray.focusRing'}
                     >
                         <Text fontSize={'7xl'}>
                             +

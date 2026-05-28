@@ -13,13 +13,18 @@ type HomeProps = {
 export default async function Home({ params }: HomeProps) {
     const { lng } = await params;
     return (
-        <Box as='main' colorPalette='shark' bgColor='colorPalette.bg'>
+        <Box
+            as='main'
+            // colorPalette='gray'
+            bgColor='bg.subtle'
+            fontFamily='var(--font-elms-sans)'
+        >
             <Header />
             <Hero lng={lng} />
             <Metrics />
             <Projects />
             <HowIWork />
-        
+
             <Footer lng={lng} />
         </Box>
     );

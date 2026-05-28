@@ -1,17 +1,18 @@
-import { Button, Stack, Heading, Container, Text, Image, Marquee, HStack } from '@chakra-ui/react';
+import { RotateWords } from '@/components/animations/RotateWords';
+import { Button, Stack, Heading, Container, Text, Image, ButtonGroup } from '@chakra-ui/react';
 import { getT } from 'next-i18next/server';
 import { LuArrowDown } from 'react-icons/lu';
 
 export default async function Hero({ lng }: { lng: string }) {
-    const {  } = await getT('', { lng });
+    const {} = await getT('', { lng });
 
     return (
         <Container
             as='section'
-            color={'shark.fg'}
             height={'calc(100vh - 4rem)'}
             position={'relative'}
             maxWidth={'7xl'}
+            fontFamily={'var(--font-elms-sans)'}
         >
             <Stack
                 justifyContent={{ base: 'flex-start', md: 'center' }}
@@ -20,74 +21,55 @@ export default async function Hero({ lng }: { lng: string }) {
                 gap={6}
             >
                 <Heading
+                    as={'h1'}
                     size={'7xl'}
-                    fontSize={{ base: '6xl', md: '7xl', lg: '8xl' }}
-                    fontFamily={'var(--font-lora)'}
+                    fontSize={{ base: '6xl', md: '7xl', lg: '100px' }}
                     fontWeight={'500'}
-                    letterSpacing={'wide'}
                     transition={'all 0.2s ease-in-out'}
+                    color={'gray.fg'}
+                    // fontFamily={'var(--font-elms-sans)'}
                 >
                     Joaht Vera
                 </Heading>
 
-                <HStack
-                    fontSize={'3xl'}
-                    color={'shark.muted'}
-                    fontFamily={'var(--font-google-sans)'}
-                    width={'full'}
-                >
-                    <Text hideBelow={'md'}>Soy</Text>
-                    <Marquee.Root
-                        height='2.5rem'
-                        side='bottom'
-                        spacing='2rem'
-                        speed={50}
-                        pauseOnInteraction
-                        padding={{ base: '0 1rem', md: '0' }}
-                    >
-                        <Marquee.Viewport>
-                            <Marquee.Content>
-                                {items.map((item, i) => (
-                                    <Marquee.Item key={i}>
-                                        <Text textAlign={{ base: 'center', md: 'left' }} truncate>{item}</Text>
-                                    </Marquee.Item>
-                                ))}
-                            </Marquee.Content>
-                        </Marquee.Viewport>
-                    </Marquee.Root>
-                </HStack>
+                <RotateWords
+                    as='h2'
+                    text='Soy'
+                    words={[
+                        'Full Stack Developer',
+                        'React, Node.js, TypeScript',
+                        'Open Source Contributor',
+                        'Tech Enthusiast',
+                    ]}
+                    fontSize={{ base: '3xl', md: '4xl' }}
+                    color={{ base: 'gray.500', _dark: 'gray.300' }}
+                    fontWeight={'500'}
+                />
 
                 <Text
-                    maxWidth={{ base: 'full', md: 'sm' }}
+                    maxWidth={{ base: 'full', md: 'md' }}
                     textAlign={{ base: 'center', md: 'left' }}
-                    fontFamily={'var(--font-google-sans)'}
                     fontSize={'xl'}
-                    color={'shark.muted'}
+                    color={'gray.500'}
                 >
                     Construyo soluciones digitales escalables con visión técnica y liderazgo.
                 </Text>
 
-                <HStack zIndex={10}>
+                <ButtonGroup
+                    size={'lg'}
+                    colorPalette={'gray'}
+                >
                     <Button
                         variant='outline'
-                        rounded={'lg'}
-                        size={'lg'}
-                        width={'fit-content'}
+                        rounded={'2xl'}
                     >
                         Conocer más <LuArrowDown />
                     </Button>
-                    <Button
-                        colorPalette={'shark'}
-                        rounded={'lg'}
-                        size={'lg'}
-                        width={'fit-content'}
-                    >
-                        Contactar
-                    </Button>
-                </HStack>
+                    <Button rounded={'2xl'}>Contactar</Button>
+                </ButtonGroup>
             </Stack>
 
-            <Image
+            {/* <Image
                 src={
                     'https://res.cloudinary.com/dzlkrqtzo/image/upload/v1779670091/Portfolio/hero-photo_gcme8s.png'
                 }
@@ -97,12 +79,10 @@ export default async function Hero({ lng }: { lng: string }) {
                 transform={{ base: 'translateX(50%) scaleX(-1)', md: 'scaleX(-1)' }}
                 bottom={0}
                 pointerEvents={'none'}
-                height={{base: '50%', md: '100%', lg: '120%'}}
+                height={{ base: '50%', md: '100%', lg: '120%' }}
                 objectFit={'contain'}
                 transition={'all 0.2s ease-in-out'}
-            />
+            /> */}
         </Container>
     );
 }
-
-const items = ['Full Stack Developer', 'React, Node.js, TypeScript', 'Open Source Contributor', 'Tech Enthusiast'];
