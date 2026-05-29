@@ -39,13 +39,14 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
         >
             <body>
                 <SpeedInsights />
-                <SmoothScrolling />
-                <I18nProvider
-                    language={lng}
-                    resources={resources}
-                >
-                    <Provider>{children}</Provider>
-                </I18nProvider>
+                <SmoothScrolling>
+                    <I18nProvider
+                        language={lng}
+                        resources={resources}
+                    >
+                        <Provider>{children}</Provider>
+                    </I18nProvider>
+                </SmoothScrolling>
             </body>
         </html>
     );

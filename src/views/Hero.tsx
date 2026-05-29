@@ -27,7 +27,6 @@ export default async function Hero({ lng }: { lng: string }) {
                     fontWeight={'500'}
                     transition={'all 0.2s ease-in-out'}
                     color={'gray.fg'}
-                    // fontFamily={'var(--font-elms-sans)'}
                 >
                     Joaht Vera
                 </Heading>
@@ -37,13 +36,16 @@ export default async function Hero({ lng }: { lng: string }) {
                     text='Soy'
                     words={[
                         'Full Stack Developer',
-                        'React, Node.js, TypeScript',
-                        'Open Source Contributor',
-                        'Tech Enthusiast',
+                        'Software Engineer',
+                        'Frontend Specialist',
+                        'JavaScript Enthusiast',
+                        'Tech Lead',
                     ]}
                     fontSize={{ base: '3xl', md: '4xl' }}
                     color={{ base: 'gray.500', _dark: 'gray.300' }}
                     fontWeight={'500'}
+                    // textAlign={{ base: 'center', md: 'left' }}
+                    justifyContent={{ base: 'center', md: 'flex-start' }}
                 />
 
                 <Text

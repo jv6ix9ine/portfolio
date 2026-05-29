@@ -1,10 +1,12 @@
 import Header from '@/components/common/Header';
+import Contact from '@/views/Contact';
 import Experience from '@/views/Experience';
 import Footer from '@/views/Footer';
 import Hero from '@/views/Hero';
 import HowIWork from '@/views/HowIWork';
 import Metrics from '@/views/Metrics';
 import Projects from '@/views/Projects';
+import Testimonials from '@/views/Testimonials';
 import { Box } from '@chakra-ui/react';
 
 type HomeProps = {
@@ -25,6 +27,8 @@ export default async function Home({ params }: HomeProps) {
             <Projects />
             <HowIWork />
             <Experience />
+            <Testimonials />
+            <Contact/>
             <Footer lng={lng} />
         </Box>
     );

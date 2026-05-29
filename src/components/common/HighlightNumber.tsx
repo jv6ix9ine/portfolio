@@ -16,7 +16,7 @@ export default function HighlightNumber({value}: {value: string | number}) {
                 fontWeight={'bold'}
                 lineHeight={'1'}
                 background={
-                    'linear-gradient(135deg, var(--chakra-colors-gray-900), var(--chakra-colors-gray-300), var(--chakra-colors-gray-700))'
+                    'linear-gradient(135deg, var(--chakra-colors-gray-900), var(--chakra-colors-gray-400), var(--chakra-colors-gray-700))'
                 }
                 backgroundSize={'300% 300%'}
                 backgroundClip={'text'}

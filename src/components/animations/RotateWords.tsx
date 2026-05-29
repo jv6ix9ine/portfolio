@@ -1,5 +1,5 @@
 'use client';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'motion/react';
 import type { ComponentPropsWithoutRef } from 'react';
 import { useEffect, useState } from 'react';
@@ -7,13 +7,9 @@ import { useEffect, useState } from 'react';
 type RotateWordsProps = {
     text?: string;
     words?: string[];
-} & ComponentPropsWithoutRef<typeof Box>;
+} & ComponentPropsWithoutRef<typeof Flex>;
 
-export function RotateWords({
-    text = 'Rotate',
-    words = ['Word 1', 'Word 2', 'Word 3'],
-    ...boxProps
-}: RotateWordsProps) {
+export function RotateWords({ text = '', words = ['Word 1', 'Word 2', 'Word 3'], ...boxProps }: RotateWordsProps) {
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
@@ -29,13 +25,13 @@ export function RotateWords({
     }, [words.length]);
 
     return (
-        <Box
+        <Flex
             width={'fit-content'}
-            display={'flex'}
-            gap={3}
+            gap={4}
+            wrap={'wrap'}
             {...boxProps}
         >
-            {text}{' '}
+            {text && <span>{text}</span>}
             <AnimatePresence mode='wait'>
                 <motion.p
                     key={words[index]}
@@ -47,6 +43,6 @@ export function RotateWords({
                     {words[index]}
                 </motion.p>
             </AnimatePresence>
-        </Box>
+        </Flex>
     );
 }

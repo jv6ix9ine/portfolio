@@ -1,136 +1,231 @@
-import {
-    Box,
-    ButtonGroup,
-    Container,
-    Heading,
-    IconButton,
-    Stack,
-    Steps,
-    Text,
-    Image,
-    HStack,
-} from '@chakra-ui/react';
-import {
-    LuAppWindow,
-    LuBrain,
-    LuCheck,
-    LuChevronLeft,
-    LuChevronRight,
-    LuCode,
-    LuTrendingUp,
-} from 'react-icons/lu';
-import NextImage from 'next/image';
+'use client';
+
+import { Box, Button, Container, HStack, Stack, Text, Heading } from '@chakra-ui/react';
+import { LuAppWindow, LuBrain, LuCode, LuTrendingUp } from 'react-icons/lu';
+import { motion, useScroll, useSpring, useTransform } from 'motion/react';
+import { useLenis } from 'lenis/react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import HighlightNumber from '@/components/common/HighlightNumber';
 
+type StepItem = {
+    title: string;
+    description: string;
+    icon: ReactNode;
+};
+
+const MotionBox = motion.create(Box);
+
+type ProcessCardProps = {
+    index: number;
+    step: StepItem;
+    isActive: boolean;
+    onReady: (node: HTMLDivElement | null) => void;
+};
+
+function ProcessCard({ index, step, isActive, onReady }: ProcessCardProps) {
+    const localRef = useRef<HTMLDivElement | null>(null);
+    const { scrollYProgress } = useScroll({
+        target: localRef,
+        offset: ['start 85%', 'center 50%'],
+    });
+
+    const x = useTransform(scrollYProgress, [0, 1], [40, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+    const scale = useTransform(scrollYProgress, [0, 1], [0.97, 1]);
+
+    return (
+        <MotionBox
+            ref={(node: HTMLDivElement | null) => {
+                localRef.current = node;
+                onReady(node);
+            }}
+            style={{ x, opacity, scale }}
+            // borderWidth='1px'
+            // borderColor={isActive ? 'gray.emphasized' : 'gray.subtle'}
+            borderWidth={1}
+            bg='bg.subtle'
+            rounded='3xl'
+            p={{ base: 6, md: 8 }}
+            boxShadow={isActive ? 'md' : undefined}
+        >
+            <Stack gap={4}>
+                <HStack
+                    justify='space-between'
+                    align='center'
+                >
+                    <HighlightNumber value={index + 1} />
+                    {/* <Box color={isActive ? 'gray.fg' : 'gray.muted'}>{step.icon}</Box> */}
+                </HStack>
+
+                <Text
+                    fontSize={{ base: '2xl', md: '3xl' }}
+                    fontWeight='bold'
+                >
+                    {step.title}
+                </Text>
+
+                <Text
+                    fontSize={{ base: 'md', md: 'lg' }}
+                    fontFamily='var(--font-google-sans)'
+                    color='gray.fg'
+                >
+                    {step.description}
+                </Text>
+            </Stack>
+        </MotionBox>
+    );
+}
+
 export default function HowIWork() {
+    const sectionRef = useRef<HTMLDivElement | null>(null);
+    const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
+    const [activeStep, setActiveStep] = useState(0);
+    const lenis = useLenis();
+
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ['start 15%', 'end 50%'],
+    });
+
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 140,
+        damping: 28,
+    });
+
+    const progressHeight = useTransform(smoothProgress, [0, 1], ['0%', '100%']);
+
+    useEffect(() => {
+        const unsubscribe = scrollYProgress.on('change', (value) => {
+            const next = Math.max(0, Math.min(steps.length - 1, Math.round(value * (steps.length - 1))));
+            setActiveStep(next);
+        });
+
+        return () => unsubscribe();
+    }, [scrollYProgress]);
+
+    const handleStepClick = (index: number) => {
+        const target = cardRefs.current[index];
+        if (!target) {
+            return;
+        }
+
+        lenis?.scrollTo(target, { offset: -140, duration: 1.1 });
+    };
+
     return (
         <Box
             as='section'
-            bgColor={'bg.muted'}
-            color={'gray.fg'}
-            height={'100vh'}
+            bgColor='bg.muted'
+            color='gray.fg'
+            ref={sectionRef}
         >
             <Container
-                maxWidth={'7xl'}
-                py={16}
-                spaceY={8}
+                maxWidth='7xl'
+                py={{ base: 14, md: 24 }}
             >
-                <Heading
-                    size={'4xl'}
-                    textAlign={'center'}
-                >
-                    Como trabajo
-                </Heading>
+                <Stack gap={{ base: 10, md: 14 }}>
 
-                <Steps.Root
-                    defaultStep={0}
-                    count={steps.length}
-                    colorPalette={'gray'}
-                    size='lg'
-                    variant='subtle'
-                >
-                    <Steps.List>
-                        {steps.map((step, index) => (
-                            <Steps.Item
-                                key={index}
-                                index={index}
-                                title={step.title}
-                            >
-                                <Steps.Indicator>
-                                    <Steps.Status
-                                        incomplete={step.icon}
-                                        complete={<LuCheck />}
-                                    />
-                                </Steps.Indicator>
-                                {/* <Steps.Title>Paso {index + 1}</Steps.Title> */}
-                                <Steps.Separator />
-                            </Steps.Item>
-                        ))}
-                    </Steps.List>
-
-                    <Box position={'relative'} width={'full'} height={'300px'}>
-                        {steps.map((step, index) => (
-                            <Steps.Content
-                                key={index}
-                                index={index}
-                                position='absolute'
-                                inset='0'
-                                _open={{
-                                    animationName: 'fade-in, scale-in',
-                                    animationDuration: '300ms',
-                                }}
-                                _closed={{
-                                    animationName: 'fade-out, scale-out',
-                                    animationDuration: '120ms',
-                                }}
-                            >
-                                <Stack gap={6}>
-                                    <Stack alignItems={'center'}>
-                                        <HighlightNumber value={index + 1} />
-                                        <Text fontSize={'4xl'}>{step.title}</Text>
-                                    </Stack>
-                                    <Text
-                                        fontSize={'xl'}
-                                        textAlign={'center'}
-                                        fontFamily={'var(--font-google-sans)'}
-                                    >
-                                        {step.description}
-                                    </Text>
-                                </Stack>
-                            </Steps.Content>
-                        ))}
-                    </Box>
-
-                    <Steps.CompletedContent>
-                        {/* Has completado todos los pasos. ¡Gracias por revisar mi proceso de trabajo! */}
-                    </Steps.CompletedContent>
-
-                    <ButtonGroup
-                        size={'2xl'}
-                        variant='surface'
-                        gap={12}
-                        width={'full'}
-                        justifyContent={'center'}
-                        mt={12}
+                    <Heading
+                        size={{ base: '3xl', md: '4xl' }}
+                        textAlign='center'
                     >
-                        <Steps.PrevTrigger asChild>
-                            <IconButton rounded={'2xl'}>
-                                <LuChevronLeft />
-                            </IconButton>
-                        </Steps.PrevTrigger>
-                        <Steps.NextTrigger asChild>
-                            <IconButton rounded={'2xl'}>
-                                <LuChevronRight />
-                            </IconButton>
-                        </Steps.NextTrigger>
-                    </ButtonGroup>
-                </Steps.Root>
+                        Como trabajo 💻
+                    </Heading>
+
+                    <HStack
+                        align='start'
+                        gap={{ base: 8, lg: 14 }}
+                        flexDir={{ base: 'column', lg: 'row' }}
+                    >
+                        <Box
+                            position={{ base: 'relative', lg: 'sticky' }}
+                            top={{ lg: 28 }}
+                            w={{ base: 'full', lg: '300px' }}
+                        >
+                            <HStack
+                                align='start'
+                                gap={4}
+                            >
+                                <Box
+                                    w='2px'
+                                    h='220px'
+                                    // bg='gray.subtle'
+                                    rounded='full'
+                                    position='relative'
+                                    overflow='hidden'
+                                >
+                                    <MotionBox
+                                        position='absolute'
+                                        left='0'
+                                        top='0'
+                                        w='full'
+                                        bg='gray.fg'
+                                        style={{ height: progressHeight }}
+                                    />
+                                </Box>
+
+                                <Stack
+                                    align='stretch'
+                                    gap={2}
+                                    flex='1'
+                                >
+                                    {steps.map((step, index) => (
+                                        <Button
+                                            key={step.title}
+                                            onClick={() => handleStepClick(index)}
+                                            justifyContent='flex-start'
+                                            colorPalette={'gray'}
+                                            bgColor={activeStep === index ? 'gray.fg' : undefined}
+                                            variant={activeStep === index ? 'solid' : 'outline'}
+                                            rounded='xl'
+                                            size='lg'
+                                            // px={3}
+                                            // py={6}
+                                            // fontWeight={activeStep === index ? 'semibold' : 'medium'}
+                                            // color={activeStep === index ? 'gray.fg' : 'gray.muted'}
+                                            // bg={activeStep === index ? 'bg.subtle' : 'transparent'}
+                                            // _hover={{ bg: 'bg.subtle' }}
+                                        >
+                                            {/* <HStack
+                                                gap={2}
+                                                justify='flex-start'
+                                                w='full'
+                                            > */}
+                                                {/* <Box>{step.icon}</Box>
+                                                <Text>{step.title}</Text> */}
+                                            {/* </HStack> */}
+                                            {step.icon} 
+                                            {step.title}
+                                        </Button>
+                                    ))}
+                                </Stack>
+                            </HStack>
+                        </Box>
+
+                        <Stack
+                            flex='1'
+                            gap={6}
+                        >
+                            {steps.map((step, index) => (
+                                <ProcessCard
+                                    key={step.title}
+                                    index={index}
+                                    step={step}
+                                    isActive={activeStep === index}
+                                    onReady={(node) => {
+                                        cardRefs.current[index] = node;
+                                    }}
+                                />
+                            ))}
+                        </Stack>
+                    </HStack>
+                </Stack>
             </Container>
         </Box>
     );
 }
 
-const steps = [
+const steps: StepItem[] = [
     {
         title: 'Entender el problema',
         description:

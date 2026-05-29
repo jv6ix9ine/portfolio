@@ -9,8 +9,9 @@ export default async function Footer({ lng }: { lng: string }) {
     return (
         <Box
             as='footer'
-            bgColor={'bg.subtle'}
+            bgColor={'bg'}
             color={'gray.fg'}
+            borderTopWidth={1}
         >
             <Container
                 py={10}
@@ -80,16 +81,15 @@ export default async function Footer({ lng }: { lng: string }) {
                         </Stack>
                     </HStack>
 
-                    <HStack
+                    <Box
                         fontSize={'sm'}
                         borderTopWidth={1}
                         pt={4}
-                        justifyContent={'center'}
                     >
-                        <Text>
+                        <Text textAlign={'center'}>
                             {new Date().getFullYear()} © Joaht Vera. All rights reserved. Designed and built by me.
                         </Text>
-                    </HStack>
+                    </Box>
                 </Stack>
             </Container>
         </Box>
