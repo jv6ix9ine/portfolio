@@ -1,0 +1,46 @@
+{
+    "title": "Proyectos 💼",
+    "items": [
+        {
+            "title": "Zonas Arqueológicas de México",
+            "description": "Es un catálogo de las zonas arqueológicas en México, incluyendo historia, ubicación y características principales. Cuando desarrollé este proyecto, puse a prueba mis habilidades para crear una experiencia de usuario única.",
+            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/v1779810064/Portfolio/zonas-light_tbmpm3.jpg",
+            "technologies": [
+                { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+                { "name": "MongoDB", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+                { "name": "Node", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
+                { "name": "Tailwind CSS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
+                { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg" }
+            ],
+            "siteLink": "https://archaeological-zones.vercel.app/home",
+            "caseStudyLink": "#"
+        },
+        {
+            "title": "Wavespace",
+            "description": "Es una plataforma de streaming de música creada para que otras personas puedan compartir sus creaciones. De una etapa de mi vida influenciada por la música, nace un proyecto para conectar.",
+            "imageUrl": "https://ipcdn-web.apple.com/assets/v2/web/d9a0fc6e-758f-4002-b201-074e5e2684dd",
+            "technologies": [
+                { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+                { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg" },
+                { "name": "MongoDB", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+                { "name": ".NET", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" },
+                { "name": "C#", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" }
+            ],
+            "siteLink": "https://archaeological-zones.vercel.app/home",
+            "caseStudyLink": "#"
+        },
+        {
+            "title": "Astralis",
+            "description": "Es un videojuego 2D que sigue las aventuras de una astronauta. El juego fue desarrollado con Unity y C#, y es un proyecto personal que me permitió explorar el desarrollo de juegos y la narrativa interactiva, sacándome de mi zona de confort.",
+            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/v1779813831/Portfolio/astralis2_ctcxi7.png",
+            "technologies": [
+                { "name": "Unity", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" },
+                { "name": "C#", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" }
+            ],
+            "siteLink": "https://youtu.be/Ea8i6_lvfvQ",
+            "caseStudyLink": "#"
+        }
+    ],
+    "visitSite": "Visitar sitio",
+    "caseStudy": "Caso de estudio"
+}

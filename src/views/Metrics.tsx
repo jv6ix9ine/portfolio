@@ -1,12 +1,13 @@
 'use client';
-
 import { AnimatedNumber } from '@/components/animations/AnimatedNumber';
 import { Box, Container, Grid, Stack, Text } from '@chakra-ui/react';
+import { useT } from 'next-i18next/client';
 import { useEffect, useRef, useState } from 'react';
 
-export default function Metrics() {
+export default function Metrics({ lng }: { lng: string }) {
     const sectionRef = useRef<HTMLDivElement | null>(null);
     const [hasEntered, setHasEntered] = useState(false);
+    const { t } = useT('metrics', { lng });
 
     useEffect(() => {
         const node = sectionRef.current;
@@ -58,7 +59,7 @@ export default function Metrics() {
                                 start={hasEntered}
                             />
                         </Text>
-                        <Text>Años de experiencia</Text>
+                        <Text>{t('yearsExperience')}</Text>
                     </Stack>
 
                     <Stack
@@ -66,7 +67,6 @@ export default function Metrics() {
                         justifyContent={'center'}
                         borderLeftWidth={{ base: 0, md: 1 }}
                         borderTopWidth={{ base: 1, md: 0 }}
-                        // borderColor={'gray.focusRing'}
                     >
                         <Text fontSize={'7xl'}>
                             +
@@ -75,7 +75,7 @@ export default function Metrics() {
                                 start={hasEntered}
                             />
                         </Text>
-                        <Text>Proyectos completados</Text>
+                        <Text>{t('projectsCompleted')}</Text>
                     </Stack>
 
                     <Stack
@@ -83,7 +83,6 @@ export default function Metrics() {
                         justifyContent={'center'}
                         borderLeftWidth={{ base: 0, lg: 1 }}
                         borderTopWidth={{ base: 1, lg: 0 }}
-                        // borderColor={'gray.focusRing'}
                     >
                         <Text fontSize={'7xl'}>
                             +
@@ -92,13 +91,13 @@ export default function Metrics() {
                                 start={hasEntered}
                             />
                         </Text>
-                        <Text>Usuarios impactados</Text>
+                        <Text>{t('usersImpacted')}</Text>
                     </Stack>
 
                     <Stack
                         padding={8}
                         justifyContent={'center'}
-                        borderLeftWidth={1}
+                        borderLeftWidth={{ base: 0, lg: 1 }}
                         borderTopWidth={{ base: 1, lg: 0 }}
                     >
                         <Text fontSize={'7xl'}>
@@ -108,7 +107,7 @@ export default function Metrics() {
                                 start={hasEntered}
                             />
                         </Text>
-                        <Text>Desarrolladores coordinados</Text>
+                        <Text>{t('coordinatedDevelopers')}</Text>
                     </Stack>
                 </Grid>
             </Container>

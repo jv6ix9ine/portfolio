@@ -23,8 +23,8 @@ export default async function Home({ params }: HomeProps) {
         >
             <Header />
             <Hero lng={lng} />
-            <Metrics />
-            <Projects />
+            <Metrics lng={lng} />
+            <Projects lng={lng} />
             <HowIWork />
             <Experience />
             <Testimonials />

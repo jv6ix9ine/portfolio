@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { LuExternalLink, LuArrowUpRight } from 'react-icons/lu';
 import Image from 'next/image';
 import { motion } from 'motion/react';
+import { useT } from 'next-i18next/client';
 
 const MotionImage = motion.create(Image);
 
@@ -24,6 +25,8 @@ export default function ProjectCard({
     siteLink,
     caseStudyLink,
 }: Project) {
+    const { t } = useT('projects');
+
     return (
         <Card.Root
             width={'full'}
@@ -79,14 +82,17 @@ export default function ProjectCard({
                             href={siteLink}
                             target='_blank'
                         >
-                            Visitar sitio <LuExternalLink />
+                            {t('visitSite')} <LuExternalLink />
                         </Link>
                     </Button>
                     <Button
                         variant='ghost'
                         rounded={'2xl'}
+                        asChild
                     >
-                        Case study <LuArrowUpRight />
+                        <Link href={caseStudyLink}>
+                            {t('caseStudy')} <LuArrowUpRight />
+                        </Link>
                     </Button>
                 </ButtonGroup>
             </Card.Footer>

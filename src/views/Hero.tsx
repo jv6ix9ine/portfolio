@@ -4,7 +4,7 @@ import { getT } from 'next-i18next/server';
 import { LuArrowDown } from 'react-icons/lu';
 
 export default async function Hero({ lng }: { lng: string }) {
-    const {} = await getT('', { lng });
+    const { t } = await getT('hero', { lng });
 
     return (
         <Container
@@ -33,7 +33,7 @@ export default async function Hero({ lng }: { lng: string }) {
 
                 <RotateWords
                     as='h2'
-                    text='Soy'
+                    text={t('im')}
                     words={[
                         'Full Stack Developer',
                         'Software Engineer',
@@ -44,7 +44,6 @@ export default async function Hero({ lng }: { lng: string }) {
                     fontSize={{ base: '3xl', md: '4xl' }}
                     color={{ base: 'gray.500', _dark: 'gray.300' }}
                     fontWeight={'500'}
-                    // textAlign={{ base: 'center', md: 'left' }}
                     justifyContent={{ base: 'center', md: 'flex-start' }}
                 />
 
@@ -54,7 +53,7 @@ export default async function Hero({ lng }: { lng: string }) {
                     fontSize={'xl'}
                     color={'gray.500'}
                 >
-                    Construyo soluciones digitales escalables con visión técnica y liderazgo.
+                    {t('description')}
                 </Text>
 
                 <ButtonGroup
@@ -65,9 +64,9 @@ export default async function Hero({ lng }: { lng: string }) {
                         variant='outline'
                         rounded={'2xl'}
                     >
-                        Conocer más <LuArrowDown />
+                        {t('learnMore')} <LuArrowDown />
                     </Button>
-                    <Button rounded={'2xl'}>Contactar</Button>
+                    <Button rounded={'2xl'}>{t('contact')}</Button>
                 </ButtonGroup>
             </Stack>
 
@@ -75,7 +74,7 @@ export default async function Hero({ lng }: { lng: string }) {
                 src={
                     'https://res.cloudinary.com/dzlkrqtzo/image/upload/v1779670091/Portfolio/hero-photo_gcme8s.png'
                 }
-                alt={'Hero Image'}
+                alt={t('altImg')}
                 position={'absolute'}
                 right={{ base: '50%', md: 0 }}
                 transform={{ base: 'translateX(50%) scaleX(-1)', md: 'scaleX(-1)' }}

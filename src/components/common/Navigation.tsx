@@ -1,6 +1,9 @@
-import { Button, Link, Stack } from '@chakra-ui/react';
+import { HStack, Link, Stack } from '@chakra-ui/react';
 import { useT } from 'next-i18next/client';
 import { LuAppWindow, LuBriefcaseBusiness, LuHouse, LuPhone } from 'react-icons/lu';
+import Download from './Download';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { ColorModeButton } from '../ui/color-mode';
 
 export const MenuOptions = [
     { label: 'home', href: '/', icon: <LuHouse /> },
@@ -30,14 +33,15 @@ export default function Navigation() {
                     {t(`nav.${option.label}`)}
                 </Link>
             ))}
-            <Button
-                colorPalette={'gray'}
-                size={'lg'}
-                hideFrom={'md'}
-                rounded={'2xl'}
-            >
-                {t('download')}
-            </Button>
+
+            <HStack hideFrom={'md'}>
+                <Download
+                    isScrolling={false}
+                    t={t}
+                />
+                <LanguageSwitcher />
+                <ColorModeButton />
+            </HStack>
         </Stack>
     );
 }

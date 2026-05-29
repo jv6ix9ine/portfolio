@@ -1,5 +1,5 @@
 'use client';
-import { Box, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { AnimatePresence, motion } from 'motion/react';
 import type { ComponentPropsWithoutRef } from 'react';
 import { useEffect, useState } from 'react';

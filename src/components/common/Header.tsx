@@ -1,5 +1,5 @@
 'use client';
-import { AbsoluteCenter, Box, Button, Container, DownloadTrigger, HStack } from '@chakra-ui/react';
+import { AbsoluteCenter, Box, Container, HStack } from '@chakra-ui/react';
 import Logo from './Logo';
 import Menu from './Menu';
 import { Fragment, useEffect, useRef, useState } from 'react';
@@ -9,8 +9,7 @@ import { ColorModeButton } from '../ui/color-mode';
 import Navigation from './Navigation';
 import { useLenis } from 'lenis/react';
 import { LanguageSwitcher } from './LanguageSwitcher';
-
-const data = 'The quick brown fox jumps over the lazy dog';
+import Download from './Download';
 
 export default function Header() {
     const sentinelRef = useRef<HTMLDivElement>(null);
@@ -94,26 +93,14 @@ export default function Header() {
                             </AbsoluteCenter>
 
                             <HStack hideBelow={'md'}>
-                                <DownloadTrigger
-                                    data={data}
-                                    fileName='sample.txt'
-                                    mimeType='text/plain'
-                                    asChild
-                                >
-                                    <Button
-                                        variant={isScrolling ? 'ghost' : 'outline'}
-                                        rounded={'2xl'}
-                                        colorPalette={'gray'}
-                                        transition={'all 0.2 easeInOut'}
-                                    >
-                                        {t('download')}
-                                    </Button>
-                                </DownloadTrigger>
-
+                                <Download
+                                    isScrolling={isScrolling}
+                                    t={t}
+                                />
                                 <LanguageSwitcher />
                                 <ColorModeButton />
                             </HStack>
-
+                            
                             <Menu />
                         </HStack>
                     </Container>
