@@ -5,5 +5,9 @@
         "experience": "Experience",
         "contact": "Contact"
     },
-    "download": "Download CV"
+    "download": "Download CV",
+    "langs" : {
+        "en": "English",
+        "es": "Spanish"
+    }
 }

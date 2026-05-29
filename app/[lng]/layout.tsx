@@ -1,5 +1,5 @@
 import '../globals.css';
-import 'lenis/dist/lenis.css'
+import 'lenis/dist/lenis.css';
 import { I18nProvider } from 'next-i18next/client';
 import { initServerI18next, getT, getResources, generateI18nStaticParams } from 'next-i18next/server';
 import { Provider } from '@/components/ui/provider';
@@ -38,15 +38,17 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
             suppressHydrationWarning
         >
             <body>
-                <SpeedInsights />
-                <SmoothScrolling>
-                    <I18nProvider
-                        language={lng}
-                        resources={resources}
-                    >
-                        <Provider>{children}</Provider>
-                    </I18nProvider>
-                </SmoothScrolling>
+                <Provider>
+                    <SpeedInsights />
+                    <SmoothScrolling>
+                        <I18nProvider
+                            language={lng}
+                            resources={resources}
+                        >
+                            {children}
+                        </I18nProvider>
+                    </SmoothScrolling>
+                </Provider>
             </body>
         </html>
     );

@@ -8,6 +8,7 @@ import { useT } from 'next-i18next/client';
 import { ColorModeButton } from '../ui/color-mode';
 import Navigation from './Navigation';
 import { useLenis } from 'lenis/react';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 const data = 'The quick brown fox jumps over the lazy dog';
 
@@ -109,6 +110,7 @@ export default function Header() {
                                     </Button>
                                 </DownloadTrigger>
 
+                                <LanguageSwitcher />
                                 <ColorModeButton />
                             </HStack>
 

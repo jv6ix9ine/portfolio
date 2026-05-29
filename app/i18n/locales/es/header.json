@@ -5,5 +5,9 @@
         "projects": "Proyectos",
         "contact": "Contacto"
     },
-    "download": "Descargar CV"
+    "download": "Descargar CV",
+    "langs": {
+        "en": "Inglés",
+        "es": "Español"
+    }
 }
