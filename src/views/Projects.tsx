@@ -1,9 +1,4 @@
-import {
-    Box,
-    Container,
-    Grid,
-    Heading,
-} from '@chakra-ui/react';
+import { Box, Container, Grid, Heading } from '@chakra-ui/react';
 import ProjectCard from '@/components/projects/ProjectCard';
 import { getT } from 'next-i18next/server';
 
@@ -21,7 +16,10 @@ export default async function Projects({ lng }: { lng: string }) {
     const projects = t('items', { returnObjects: true }) as Project[];
 
     return (
-        <Box as='section'>
+        <Box
+            as='section'
+            id='projects'
+        >
             <Container
                 maxWidth={'7xl'}
                 py={16}

@@ -27,6 +27,7 @@ export default function Testimonials() {
             bgColor={'bg.muted'}
             color={'gray.fg'}
             py={8}
+            overflowX='hidden'
         >
             <Container
                 maxWidth={'7xl'}
@@ -112,7 +113,7 @@ const TestimonialCard = ({ item }: { item: Testimonial }) => {
                             >
                                 <Avatar.Root
                                     size='sm'
-                                    colorPalette={pickPalette(item.name)}
+                                    // colorPalette={pickPalette(item.name)}
                                 >
                                     {item.avatar ? <Avatar.Image src={item.avatar} /> : item.avatar}
                                     <Avatar.Fallback name={item.name} />

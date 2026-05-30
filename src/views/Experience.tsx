@@ -8,6 +8,7 @@ const Experience = () => {
             as='section'
             bgColor={'bg.subtle'}
             color={'gray.fg'}
+            id='experience'
         >
             <Container
                 maxWidth={'7xl'}

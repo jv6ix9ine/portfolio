@@ -20,6 +20,7 @@ export default async function Home({ params }: HomeProps) {
             as='main'
             bgColor='bg.subtle'
             fontFamily='var(--font-elms-sans)'
+            position='relative'
         >
             <Header />
             <Hero lng={lng} />

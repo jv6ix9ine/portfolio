@@ -12,11 +12,12 @@ export default function SmoothScrolling({ children }: SmoothScrollingProps) {
         <ReactLenis
             root
             options={{
-                duration: 2,
-                lerp: 0.08,
+                duration: 1.8,
+                lerp: 0.1,
                 smoothWheel: true,
                 wheelMultiplier: 1,
                 touchMultiplier: 2,
+                anchors: true,
             }}
         >
             {children}

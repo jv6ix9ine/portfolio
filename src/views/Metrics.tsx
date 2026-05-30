@@ -37,6 +37,7 @@ export default function Metrics({ lng }: { lng: string }) {
             bgColor={'bg.muted'}
             color={'gray.fg'}
             ref={sectionRef}
+            id='metrics'
         >
             <Container
                 maxWidth={'7xl'}

@@ -24,6 +24,7 @@ export default function Contact() {
             bg='bg.subtle'
             color='gray.fg'
             py={{ base: 14, md: 24 }}
+            id='contact'
         >
             <Container maxWidth='7xl'>
                 <Stack gap={{ base: 8, md: 12 }}>

@@ -1,8 +1,8 @@
 'use client';
-import { AbsoluteCenter, Box, Container, HStack } from '@chakra-ui/react';
+import { AbsoluteCenter, Container, HStack } from '@chakra-ui/react';
 import Logo from './Logo';
 import Menu from './Menu';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { useT } from 'next-i18next/client';
 import { ColorModeButton } from '../ui/color-mode';
@@ -12,100 +12,97 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import Download from './Download';
 
 export default function Header() {
-    const sentinelRef = useRef<HTMLDivElement>(null);
-    // const [isSticky, setIsSticky] = useState(false);
-    // const [scrollY, setScrollY] = useState(0);
+    const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | 'none'>('none');
     const [isScrolling, setIsScrolling] = useState(false);
-    const scrollStopTimerRef = useRef<number | null>(null);
     const { t } = useT('header');
 
     useLenis((lenis) => {
-        // setScrollY(lenis.scroll);
         setIsScrolling(Boolean(lenis.isScrolling));
-
-        if (scrollStopTimerRef.current) {
-            window.clearTimeout(scrollStopTimerRef.current);
+        if (lenis.isScrolling) {
+            const scrollValue = () => {
+                if (lenis.direction === 1 && lenis.scroll > 50) {
+                    return 'down';
+                } else if (lenis.direction === -1 && lenis.scroll > 50) {
+                    return 'up';
+                } else {
+                    return 'none';
+                }
+            };
+            setScrollDirection(scrollValue());
         }
-
-        scrollStopTimerRef.current = window.setTimeout(() => {
-            setIsScrolling(false);
-        }, 120);
     });
 
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(([entry]) => {
-    //         setIsSticky(!entry.isIntersecting);
-    //     });
-
-    //     if (sentinelRef.current) {
-    //         observer.observe(sentinelRef.current);
-    //     }
-
-    //     return () => observer.disconnect();
-    // }, []);
-
-    useEffect(() => {
-        return () => {
-            if (scrollStopTimerRef.current) {
-                window.clearTimeout(scrollStopTimerRef.current);
-            }
-        };
-    }, []);
-
-    // useEffect(() => {
-    //     console.log('Sticky:', isSticky);
-    //     // console.log('ScrollY:', scrollY);
-    //     console.log('Is Scrolling:', isScrolling);
-    //  }, [isSticky, isScrolling]);
-
     return (
-        <Fragment>
-            <div ref={sentinelRef} />
-            <motion.header
-                style={{ position: 'sticky', top: 0, zIndex: 50 }}
-                // data-scroll-y={scrollY}
-                // data-scrolling={isScrolling}
-                animate={{
-                    top: isScrolling ? '0.75rem' : '0',
-                    width: isScrolling ? '95%' : '100%',
-                    margin: isScrolling ? '0 auto' : '0',
+        <motion.header
+            style={{
+                position: 'sticky',
+                zIndex: 50,
+                top: '0',
+                display: 'flex',
+                justifyContent: 'center',
+            }}
+            animate={{
+                top: scrollDirection === 'down' ? '-4rem' : scrollDirection === 'up' ? '0.75rem' : undefined,
+            }}
+            transition={{
+                duration: 0.2,
+                ease: 'easeInOut',
+                type: 'spring',
+                damping: 20,
+                stiffness: 300,
+                delay: 0.1,
+            }}
+        >
+            <motion.div
+                style={{
+                    backgroundColor: 'var(--chakra-colors-bg-subtle/40)',
+                    backdropFilter: 'blur(5px)',
+                    borderColor: 'var(--chakra-colors-border)',
+                    width: '100%',
                 }}
-                transition={{ duration: 0.2, ease: 'easeInOut', type: 'spring', damping: 20, stiffness: 300 }}
+                initial={{
+                    opacity: 0,
+                }}
+                animate={{
+                    opacity: 1,
+                    y: 0,
+                    borderRadius: scrollDirection === 'up' ? '1rem' : undefined,
+                    borderWidth:  scrollDirection === 'up' ? '0.5px' : undefined,
+                    width: scrollDirection === 'up' ? '95%' : undefined,
+                }}
+                transition={{
+                    duration: 0.2,
+                    ease: 'easeInOut',
+                    delay: 0.1,
+                    type: 'spring',
+                    stiffness: 300,
+                    damping: 20,
+                }}
             >
-                <Box
-                    bgColor={'bg.subtle/40'}
-                    backdropFilter='blur(5px)'
-                    borderWidth={isScrolling ? '0.5px' : undefined}
-                    rounded={isScrolling ? '3xl' : undefined}
-                    px={4}
-                    marginX={isScrolling ? 4 : undefined}
-                    position='relative'
-                >
-                    <Container maxWidth='7xl'>
-                        <HStack
-                            height='16'
-                            justifyContent='space-between'
-                        >
-                            <Logo />
+                <Container maxWidth='7xl'>
+                    <HStack
+                        height='16'
+                        justifyContent='space-between'
+                    >
+                        <Logo />
 
-                            <AbsoluteCenter hideBelow={'md'}>
-                                <Navigation />
-                            </AbsoluteCenter>
+                        <AbsoluteCenter hideBelow={'lg'}>
+                            <Navigation />
+                        </AbsoluteCenter>
 
-                            <HStack hideBelow={'md'}>
-                                <Download
-                                    isScrolling={isScrolling}
-                                    t={t}
-                                />
-                                <LanguageSwitcher />
-                                <ColorModeButton />
-                            </HStack>
-                            
-                            <Menu />
+                        <HStack hideBelow={'lg'}>
+                            <Download
+                                isScrolling={isScrolling}
+                                t={t}
+                            />
+                            <LanguageSwitcher />
+                            <ColorModeButton />
                         </HStack>
-                    </Container>
-                </Box>
-            </motion.header>
-        </Fragment>
+
+                        <Menu />
+                    </HStack>
+                </Container>
+            </motion.div>
+        </motion.header>
     );
 }

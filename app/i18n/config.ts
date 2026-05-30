@@ -16,6 +16,7 @@ const i18nConfig: I18nConfig = {
         'contact',
         'footer',
     ],
+    hideDefaultLocale: true,
     // Recommended: works on all platforms including Vercel/serverless
     resourceLoader: (language, namespace) =>
         import(`./locales/${language}/${namespace}.json`).then((mod) => mod.default),

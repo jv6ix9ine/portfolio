@@ -11,7 +11,7 @@ export default function Menu() {
                     variant={'ghost'}
                     colorPalette={'gray'}
                     aria-label='Menu'
-                    hideFrom={'md'}
+                    hideFrom={'lg'}
                 >
                     <LuMenu />
                 </IconButton>

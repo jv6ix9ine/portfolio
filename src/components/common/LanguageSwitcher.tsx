@@ -41,8 +41,9 @@ export function LanguageSwitcher() {
     const [currentLang, setCurrentLang] = useState([i18n.language || 'en']);
 
     const switchLocale = (locale: string) => {
+        const currentHash = window.location.hash;
         const segments = pathname.split('/');
-        segments[1] = locale;
+        segments[1] = currentHash ? `${locale}${currentHash}` : locale;
         router.push(segments.join('/'));
     };
 
@@ -78,13 +79,13 @@ export function LanguageSwitcher() {
                                     justifyContent={'space-between'}
                                 >
                                     <Text>{t(`langs.${lng}`)}</Text>
-                                <Select.ItemIndicator />
+                                    <Select.ItemIndicator />
                                 </HStack>
-                                    <Image
-                                        src={flags[lng]}
-                                        alt={lng.toUpperCase()}
-                                        width='20px'
-                                    />
+                                <Image
+                                    src={flags[lng]}
+                                    alt={lng.toUpperCase()}
+                                    width='20px'
+                                />
                             </Select.Item>
                         ))}
                     </Select.Content>

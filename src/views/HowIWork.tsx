@@ -1,5 +1,4 @@
 'use client';
-
 import { Box, Button, Container, HStack, Stack, Text, Heading } from '@chakra-ui/react';
 import { LuAppWindow, LuBrain, LuCode, LuTrendingUp } from 'react-icons/lu';
 import { motion, useScroll, useSpring, useTransform } from 'motion/react';
@@ -40,13 +39,11 @@ function ProcessCard({ index, step, isActive, onReady }: ProcessCardProps) {
                 onReady(node);
             }}
             style={{ x, opacity, scale }}
-            // borderWidth='1px'
-            // borderColor={isActive ? 'gray.emphasized' : 'gray.subtle'}
             borderWidth={1}
             bg='bg.subtle'
-            rounded='3xl'
+            rounded='2xl'
             p={{ base: 6, md: 8 }}
-            boxShadow={isActive ? 'md' : undefined}
+            boxShadow={isActive ? 'xs' : undefined}
         >
             <Stack gap={4}>
                 <HStack
@@ -54,7 +51,6 @@ function ProcessCard({ index, step, isActive, onReady }: ProcessCardProps) {
                     align='center'
                 >
                     <HighlightNumber value={index + 1} />
-                    {/* <Box color={isActive ? 'gray.fg' : 'gray.muted'}>{step.icon}</Box> */}
                 </HStack>
 
                 <Text
@@ -124,7 +120,6 @@ export default function HowIWork() {
                 py={{ base: 14, md: 24 }}
             >
                 <Stack gap={{ base: 10, md: 14 }}>
-
                     <Heading
                         size={{ base: '3xl', md: '4xl' }}
                         textAlign='center'
@@ -149,7 +144,6 @@ export default function HowIWork() {
                                 <Box
                                     w='2px'
                                     h='220px'
-                                    // bg='gray.subtle'
                                     rounded='full'
                                     position='relative'
                                     overflow='hidden'
@@ -179,22 +173,8 @@ export default function HowIWork() {
                                             variant={activeStep === index ? 'solid' : 'outline'}
                                             rounded='xl'
                                             size='lg'
-                                            // px={3}
-                                            // py={6}
-                                            // fontWeight={activeStep === index ? 'semibold' : 'medium'}
-                                            // color={activeStep === index ? 'gray.fg' : 'gray.muted'}
-                                            // bg={activeStep === index ? 'bg.subtle' : 'transparent'}
-                                            // _hover={{ bg: 'bg.subtle' }}
                                         >
-                                            {/* <HStack
-                                                gap={2}
-                                                justify='flex-start'
-                                                w='full'
-                                            > */}
-                                                {/* <Box>{step.icon}</Box>
-                                                <Text>{step.title}</Text> */}
-                                            {/* </HStack> */}
-                                            {step.icon} 
+                                            {step.icon}
                                             {step.title}
                                         </Button>
                                     ))}

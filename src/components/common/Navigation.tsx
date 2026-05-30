@@ -6,35 +6,36 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { ColorModeButton } from '../ui/color-mode';
 
 export const MenuOptions = [
-    { label: 'home', href: '/', icon: <LuHouse /> },
-    { label: 'projects', href: '/#projects', icon: <LuAppWindow /> },
-    { label: 'experience', href: '/#experience', icon: <LuBriefcaseBusiness /> },
-    { label: 'contact', href: '/#contact', icon: <LuPhone /> },
+    { label: 'home', href: '#home', icon: <LuHouse /> },
+    { label: 'projects', href: '#projects', icon: <LuAppWindow /> },
+    { label: 'experience', href: '#experience', icon: <LuBriefcaseBusiness /> },
+    { label: 'contact', href: '#contact', icon: <LuPhone /> },
 ];
 
 export default function Navigation() {
     const { t } = useT('header');
+    
     return (
         <Stack
             as='nav'
             height={'full'}
-            gap={{ base: 10, md: 6 }}
-            direction={{ base: 'column', md: 'row' }}
-            alignItems={{ base: 'center', md: 'flex-start' }}
-            paddingTop={{ base: 10, md: 0 }}
+            gap={{ base: 10, lg: 6 }}
+            direction={{ base: 'column', lg: 'row' }}
+            alignItems={{ base: 'center', lg: 'flex-start' }}
+            paddingTop={{ base: 10, lg: 0 }}
         >
             {MenuOptions.map((option) => (
                 <Link
                     key={option.label}
                     href={option.href}
-                    aria-current={option.href === '/' ? 'page' : undefined}
-                    _currentPage={{ fontWeight: 'bold' }}
+                    variant='plain'
+                    focusRing='none'
                 >
                     {t(`nav.${option.label}`)}
                 </Link>
             ))}
 
-            <HStack hideFrom={'md'}>
+            <HStack hideFrom={'lg'}>
                 <Download
                     isScrolling={false}
                     t={t}
