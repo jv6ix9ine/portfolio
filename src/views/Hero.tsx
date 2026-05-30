@@ -100,7 +100,7 @@ export default async function Hero({ lng }: { lng: string }) {
                 <Box
                     height={'full'}
                     width={{ base: 'full' }}
-                    bgImage={'url(/hero2.png)'}
+                    bgImage={'url(/hero4.png)'}
                     bgPos={{ base: 'center bottom' }}
                     bgRepeat={'no-repeat'}
                     bgSize={{base: 'contain'}}
