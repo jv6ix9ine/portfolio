@@ -1,0 +1,35 @@
+{
+  "title": "People I've worked with 👨‍💻",
+  "items": [
+    {
+      "name": "Cesar Oviedo",
+      "role": "Backend Developer",
+      "avatar": null,
+      "content": "A well-rounded profile balancing technical and aesthetic excellence with an impeccable work ethic and strong team cohesion."
+    },
+    {
+      "name": "Gilberto Martínez",
+      "role": "Senior Web Developer",
+      "avatar": null,
+      "content": "Demonstrated strong adaptability and quick learning of new technologies. Notable for initiative, proposing improvements and applying solid development best practices."
+    },
+    {
+      "name": "Daniel Rodríguez",
+      "role": "Full-Stack Developer",
+      "avatar": null,
+      "content": "Technically strong in UI/UX, good programming logic, efficient resource management and solid database understanding. Soft skills include people management, leadership, effective communication and team coordination."
+    },
+    {
+      "name": "Oscar Zavala",
+      "role": "Technical Support",
+      "avatar": null,
+      "content": "Excellent, very clean and organized. Has an excellent way of handling code."
+    },
+    {
+      "name": "Anahí Solís",
+      "role": "HR",
+      "avatar": null,
+      "content": "I believe Joaht Vera did a good job as a developer, showing responsibility, initiative and strong technical skills."
+    }
+  ]
+}

@@ -26,9 +26,9 @@ export default async function Home({ params }: HomeProps) {
             <Hero lng={lng} />
             <Metrics lng={lng} />
             <Projects lng={lng} />
-            <HowIWork />
-            <Experience />
-            <Testimonials />
+            <HowIWork lng={lng} />
+            <Experience lng={lng} />
+            <Testimonials lng={lng} />
             <Contact/>
             <Footer lng={lng} />
         </Box>

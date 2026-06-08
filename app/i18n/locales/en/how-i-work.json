@@ -1,0 +1,21 @@
+{
+  "title": "How I Work 💻",
+  "steps": [
+    {
+      "title": "Understand the problem",
+      "description": "Before writing code, I identify business goals, technical constraints and real user needs."
+    },
+    {
+      "title": "Design the solution",
+      "description": "I define a scalable architecture prioritizing maintainability, performance and long-term evolvability."
+    },
+    {
+      "title": "Build with quality",
+      "description": "I implement modern solutions with clear standards, clean code and focus on user experience."
+    },
+    {
+      "title": "Measure and improve",
+      "description": "I analyze results, identify optimization opportunities and continuously evolve the product."
+    }
+  ]
+}

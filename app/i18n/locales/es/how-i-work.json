@@ -1,0 +1,21 @@
+{
+  "title": "Cómo trabajo 💻",
+  "steps": [
+    {
+      "title": "Entender el problema",
+      "description": "Antes de escribir código, identifico los objetivos de negocio, las restricciones técnicas y las necesidades reales de los usuarios."
+    },
+    {
+      "title": "Diseñar la solución",
+      "description": "Defino una arquitectura escalable, priorizando mantenibilidad, rendimiento y capacidad de evolución a largo plazo."
+    },
+    {
+      "title": "Construir con calidad",
+      "description": "Implemento soluciones modernas con estándares claros, código limpio y foco en la experiencia del usuario."
+    },
+    {
+      "title": "Medir y mejorar",
+      "description": "Analizo resultados, identifico oportunidades de optimización y evoluciono el producto de forma continua."
+    }
+  ]
+}

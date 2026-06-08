@@ -1,0 +1,65 @@
+{
+  "title": "Professional Experience",
+  "tiendatec": {
+    "header": {
+      "title": "TiendaTec",
+      "description": "Saltillo, Coahuila de Zaragoza. Mexico."
+    },
+    "items": [
+      {
+        "title": "Team Lead | Full-stack Developer",
+        "description": "I led three projects focused on data analytics and retail platforms, working on software architecture, API development, CI/CD, databases and user interfaces. My main focus was coordinating teams and processes to build scalable, functional solutions aligned with business needs, ensuring both technical quality and product value.",
+        "date": "Sep. 2025 - May 2026"
+      },
+      {
+        "title": "Front-end Developer",
+        "description": "My main work was migrating and maintaining custom web applications, building modern, functional interfaces centered on user experience.",
+        "date": "Jun. 2025 - Sep. 2025"
+      }
+    ]
+  },
+  "dapper-ci-cd-2025": {
+    "header": {
+      "title": "Dapper Technologies",
+      "description": "Cancun, Quintana Roo. Mexico."
+    },
+    "items": [
+      {
+        "title": "CI/CD Intern",
+        "description": "I completed professional internships in the Continuous Integration and Deployment (CI/CD) area, contributing to maintenance, continuous improvement and monitoring of web applications and systems developed with Angular.",
+        "date": "Jan. 2025 - May. 2025"
+      }
+    ]
+  },
+  "dotnet-dev-systems": {
+    "header": {
+      "title": "DotNet System Development",
+      "description": "Cancun, Quintana Roo. Mexico."
+    },
+    "items": [
+      {
+        "title": "Web Development Intern",
+        "description": "I contributed to the development of an internal web application built with Next.js, using Microsoft Azure as the cloud services platform for deployment and administration. I gained hands-on experience building modern web applications, as well as implementing and managing cloud solutions, focusing on efficient and functional user interfaces.",
+        "date": "Jun. 2023 - May. 2024"
+      }
+    ]
+  },
+  "dapper-fullstack-2021": {
+    "header": {
+      "title": "Dapper Technologies",
+      "description": "Cancun, Quintana Roo. Mexico."
+    },
+    "items": [
+      {
+        "title": "Full-stack Developer",
+        "description": "I developed web applications and tailor-made software solutions for Dapper Technologies clients, using technologies like Angular, Flutter and Express.js to create functional, scalable products tailored to each project's needs.",
+        "date": "Dec. 2021 - May. 2022"
+      },
+      {
+        "title": "CI/CD Intern",
+        "description": "I completed professional internships contributing to the maintenance, continuous improvement and monitoring of web applications and systems developed with Angular.",
+        "date": "Sep. 2021 - Dec. 2021"
+      }
+    ]
+  }
+}

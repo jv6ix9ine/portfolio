@@ -10,7 +10,7 @@ const i18nConfig: I18nConfig = {
         'hero',
         'metrics',
         'projects',
-        'howIWork',
+        'how-i-work',
         'experience',
         'testimonials',
         'contact',

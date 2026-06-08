@@ -9,5 +9,6 @@
     "langs": {
         "en": "Inglés",
         "es": "Español"
-    }
+    },
+    "languageSwitcher": "Selector de idioma"
 }

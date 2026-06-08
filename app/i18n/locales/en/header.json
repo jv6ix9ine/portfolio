@@ -9,5 +9,6 @@
     "langs" : {
         "en": "English",
         "es": "Spanish"
-    }
+    },
+    "languageSwitcher": "Language Switcher"
 }

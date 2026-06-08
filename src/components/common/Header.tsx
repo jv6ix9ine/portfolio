@@ -73,7 +73,7 @@ export default function Header() {
                 transition={{
                     duration: 0.2,
                     ease: 'easeInOut',
-                    delay: 0.1,
+                    delay: 0,
                     type: 'spring',
                     stiffness: 300,
                     damping: 20,

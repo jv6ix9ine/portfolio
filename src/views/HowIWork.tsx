@@ -5,11 +5,13 @@ import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { useLenis } from 'lenis/react';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import HighlightNumber from '@/components/common/HighlightNumber';
+import { useT } from 'next-i18next/client';
+import { IconType } from 'react-icons';
 
 type StepItem = {
     title: string;
     description: string;
-    icon: ReactNode;
+    icon: IconType;
 };
 
 const MotionBox = motion.create(Box);
@@ -72,11 +74,12 @@ function ProcessCard({ index, step, isActive, onReady }: ProcessCardProps) {
     );
 }
 
-export default function HowIWork() {
+export default function HowIWork({ lng }: { lng: string }) {
     const sectionRef = useRef<HTMLDivElement | null>(null);
     const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
     const [activeStep, setActiveStep] = useState(0);
     const lenis = useLenis();
+    const { t } = useT('how-i-work', { lng });
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -89,6 +92,13 @@ export default function HowIWork() {
     });
 
     const progressHeight = useTransform(smoothProgress, [0, 1], ['0%', '100%']);
+    const icons = [LuBrain, LuAppWindow, LuCode, LuTrendingUp];
+
+    const steps: StepItem[] = (t('steps', { returnObjects: true }) as Array<{ title: string; description: string}>).map((s, i) => ({
+        title: s.title,
+        description: s.description,
+        icon: icons[i],
+    }));
 
     useEffect(() => {
         const unsubscribe = scrollYProgress.on('change', (value) => {
@@ -97,7 +107,7 @@ export default function HowIWork() {
         });
 
         return () => unsubscribe();
-    }, [scrollYProgress]);
+    }, [scrollYProgress, steps.length]);
 
     const handleStepClick = (index: number) => {
         const target = cardRefs.current[index];
@@ -124,7 +134,7 @@ export default function HowIWork() {
                         size={{ base: '3xl', md: '4xl' }}
                         textAlign='center'
                     >
-                        Como trabajo 💻
+                        {t('title')}
                     </Heading>
 
                     <HStack
@@ -174,7 +184,7 @@ export default function HowIWork() {
                                             rounded='xl'
                                             size='lg'
                                         >
-                                            {step.icon}
+                                            {<step.icon/>}
                                             {step.title}
                                         </Button>
                                     ))}
@@ -205,29 +215,4 @@ export default function HowIWork() {
     );
 }
 
-const steps: StepItem[] = [
-    {
-        title: 'Entender el problema',
-        description:
-            'Antes de escribir código, identifico los objetivos de negocio, las restricciones técnicas y las necesidades reales de los usuarios.',
-        icon: <LuBrain />,
-    },
-    {
-        title: 'Diseñar la solución',
-        description:
-            'Defino una arquitectura escalable, priorizando mantenibilidad, rendimiento y capacidad de evolución a largo plazo.',
-        icon: <LuAppWindow />,
-    },
-    {
-        title: 'Construir con calidad',
-        description:
-            'Implemento soluciones modernas con estándares claros, código limpio y foco en la experiencia del usuario.',
-        icon: <LuCode />,
-    },
-    {
-        title: 'Medir y mejorar',
-        description:
-            'Analizo resultados, identifico oportunidades de optimización y evoluciono el producto de forma continua.',
-        icon: <LuTrendingUp />,
-    },
-];
+

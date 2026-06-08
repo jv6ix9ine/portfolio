@@ -1,0 +1,35 @@
+{
+  "title": "Personas con las que he trabajado 👨‍💻",
+  "items": [
+    {
+      "name": "Cesar Oviedo",
+      "role": "Desarrollador Backend",
+      "avatar": null,
+      "content": "Un perfil integral que equilibra la perfección técnica/estética con una ética laboral impecable y una gran cohesión de grupo."
+    },
+    {
+      "name": "Gilberto Martínez",
+      "role": "Desarrollador Web Senior",
+      "avatar": null,
+      "content": "Demostró una gran capacidad de adaptación y aprendizaje de nuevas tecnologías. Se caracteriza por su iniciativa, disposición para proponer mejoras y enfoque en la aplicación de buenas prácticas de desarrollo."
+    },
+    {
+      "name": "Daniel Rodríguez",
+      "role": "Desarrollador Full-Stack",
+      "avatar": null,
+      "content": "En lo técnico, cuenta con una gran habilidad para UI/UX, buena lógica de programación, manejo eficiente de recursos y una sólida comprensión de bases de datos. En cuanto a habilidades blandas, destaca por su capacidad para el manejo de personal, liderazgo, comunicación efectiva y disposición para coordinar equipos de trabajo."
+    },
+    {
+      "name": "Oscar Zavala",
+      "role": "Soporte Técnico",
+      "avatar": null,
+      "content": "Excelente, muy limpio y ordenado. Tiene una excelente forma de manejar código."
+    },
+    {
+      "name": "Anahí Solís",
+      "role": "RRHH",
+      "avatar": null,
+      "content": "Considero que Joaht Vera realizó un buen trabajo como desarrollador, mostrando responsabilidad, iniciativa y buenas habilidades técnicas."
+    }
+  ]
+}

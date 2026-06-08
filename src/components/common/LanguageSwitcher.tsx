@@ -59,6 +59,7 @@ export function LanguageSwitcher() {
                 switchLocale(e.value[0]);
             }}
             value={currentLang}
+            aria-label={t('languageSwitcher')}
         >
             <Select.HiddenSelect />
             <Select.Control>

@@ -1,8 +1,11 @@
 import { experienceData } from '@/components/experience/data';
 import ExperienceItem from '@/components/experience/ExperienceItem';
 import { Timeline, Box, Container, Heading } from '@chakra-ui/react';
+import { getT } from 'next-i18next/server';
 
-const Experience = () => {
+export default async function Experience({ lng }: { lng: string }) {
+    const { t } = await getT('experience', { lng });
+    
     return (
         <Box
             as='section'
@@ -20,7 +23,7 @@ const Experience = () => {
                     mb={6}
                     textAlign={'center'}
                 >
-                    Trayectoria profesional
+                    {t('title')}
                 </Heading>
 
                 <Timeline.Root size={'xl'}>
@@ -36,4 +39,3 @@ const Experience = () => {
     );
 };
 
-export default Experience;

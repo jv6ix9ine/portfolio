@@ -3,12 +3,25 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ExperienceData } from './data';
 import { Box, Timeline, Stack, AvatarGroup, Avatar, Text } from '@chakra-ui/react';
+import { useT } from 'next-i18next/client';
 
 const MotionBox = motion.create(Box);
 
 export default function ExperienceItem(exp: ExperienceData) {
-    const { header, items, technologies, icon } = exp;
+    const { t } = useT('experience');
+    const { id, technologies, icon } = exp;
     const itemRef = useRef<HTMLDivElement | null>(null);
+    const experience = t(id, { returnObjects: true }) as {
+        header: {
+            title: string;
+            description: string;
+        };
+        items: Array<{
+            title: string;
+            description: string;
+            date: string;
+        }>;
+    };
     const { scrollYProgress } = useScroll({
         target: itemRef,
         offset: ['start end', 'end start'],
@@ -31,12 +44,12 @@ export default function ExperienceItem(exp: ExperienceData) {
                             fontSize='lg'
                             fontWeight='bold'
                         >
-                            {header.title}
+                                {experience.header.title}
                         </Text>
                     </Timeline.Title>
-                    <Timeline.Description>{header.description}</Timeline.Description>
+                        <Timeline.Description>{experience.header.description}</Timeline.Description>
 
-                    {items.map((item, index) => (
+                        {experience.items.map((item, index) => (
                         <Stack key={index} mb={4}>
                             <Timeline.Title>{item.title}</Timeline.Title>
                             <Timeline.Description>{item.date}</Timeline.Description>

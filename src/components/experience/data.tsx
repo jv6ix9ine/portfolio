@@ -2,42 +2,19 @@ import { ReactNode } from 'react';
 import { LuBriefcaseBusiness, LuGraduationCap } from 'react-icons/lu';
 
 export type ExperienceItem = {
-    title: string;
-    description: string;
-    date: string;
+    id: string;
 };
 
 export type ExperienceData = {
+    id: string;
     icon: ReactNode;
-    header: {
-        title: string;
-        description: string;
-    };
-    items: ExperienceItem[];
     technologies?: { name: string; icon: string }[];
 };
 
 export const experienceData: ExperienceData[] = [
     {
+        id: 'tiendatec',
         icon: <LuBriefcaseBusiness />,
-        header: {
-            title: 'TiendaTec',
-            description: 'Saltillo, Coahuila de Zaragoza. México.',
-        },
-        items: [
-            {
-                title: 'Líder de equipo | Desarrollador full-stack',
-                description:
-                    'Lideré tres proyectos enfocados en plataformas de análisis de datos y retail, participando en arquitectura de software, desarrollo de APIs, CI/CD, bases de datos e interfaces de usuario. Mi enfoque principal fue coordinar equipos y procesos para construir soluciones escalables, funcionales y alineadas con las necesidades del negocio, asegurando tanto la calidad técnica como el valor del producto final.',
-                date: 'Sep. 2025 - Mayo 2026',
-            },
-            {
-                title: 'Desarrollador front-end',
-                description:
-                    'Mi trabajo principal fue la migración y mantenimiento de aplicaciones web a la medida, construyendo interfaces modernas, funcionales y centradas en la experiencia del usuario.',
-                date: 'Jun. 2025 - Sep. 2025',
-            },
-        ],
         technologies: [
             {
                 name: 'React',
@@ -74,19 +51,8 @@ export const experienceData: ExperienceData[] = [
         ],
     },
     {
+        id: 'dapper-ci-cd-2025',
         icon: <LuGraduationCap />,
-        header: {
-            title: 'Dapper Technologies',
-            description: 'Cancun, Quintana Roo. México.',
-        },
-        items: [
-            {
-                title: 'Interno de CI/CD',
-                description:
-                    'Realicé prácticas profesionales en el área de Integración y Despliegue Continuo (CI/CD), participando en el mantenimiento, mejora continua y monitoreo de aplicaciones web y sistemas desarrollados con Angular.',
-                date: 'Ene. 2025 - May. 2025',
-            },
-        ],
         technologies: [
             {
                 name: 'Angular',
@@ -115,19 +81,8 @@ export const experienceData: ExperienceData[] = [
         ],
     },
     {
+        id: 'dotnet-dev-systems',
         icon: <LuGraduationCap />,
-        header: {
-            title: 'DotNet Desarrollo de Sistemas',
-            description: 'Cancun, Quintana Roo. México.',
-        },
-        items: [
-            {
-                title: 'Becario de desarrollo web',
-                description:
-                    'Contribuí en el desarrollo de una aplicación web interna construida con Next.js, utilizando Microsoft Azure como plataforma de servicios en la nube para su despliegue y administración. Adquirí experiencia práctica en el desarrollo de aplicaciones web modernas, así como en la implementación y gestión de soluciones en la nube, enfocándome en la creación de interfaces de usuario eficientes y funcionales.',
-                date: 'Jun. 2023 - May. 2024',
-            },
-        ],
         technologies: [
             {
                 name: 'React',
@@ -156,26 +111,8 @@ export const experienceData: ExperienceData[] = [
         ],
     },
     {
+        id: 'dapper-fullstack-2021',
         icon: <LuBriefcaseBusiness />,
-        header: {
-            title: 'Dapper Technologies',
-            description: 'Cancun, Quintana Roo. México.',
-        },
-        items: [
-            {
-                title: 'Desarrollador full-stack',
-                description:
-                    'Desarrollé aplicaciones web y soluciones de software a la medida para clientes de Dapper Technologies, utilizando tecnologías como Angular, Flutter y Express.js para crear productos funcionales, escalables y adaptados a las necesidades de cada proyecto.',
-                date: 'Dic. 2021 - May. 2022',
-            },
-
-            {
-                title: 'Interno de CI/CD',
-                description:
-                    'Realicé prácticas profesionales participando en el mantenimiento, mejora continua y monitoreo de aplicaciones web y sistemas desarrollados con Angular.',
-                date: 'Sep. 2021 - Dic. 2021',
-            },
-        ],
         technologies: [
             {
                 name: 'Angular',
