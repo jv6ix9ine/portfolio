@@ -173,7 +173,7 @@ const testimonials: Testimonial[] = [
     {
         name: 'Cesar Oviedo',
         role: 'Desarrollador Backend',
-        avatar: 'https://res.cloudinary.com/dzlkrqtzo/image/upload/v1779999752/Portfolio/cesar_dejeui.png',
+        avatar: null,
         content:
             'Un perfil integral que equilibra la perfección técnica/estética con una ética laboral impecable y una gran cohesión de grupo.',
     },
@@ -187,7 +187,7 @@ const testimonials: Testimonial[] = [
     {
         name: 'Daniel Rodríguez',
         role: 'Desarrollador Full-Stack',
-        avatar: 'https://res.cloudinary.com/dzlkrqtzo/image/upload/v1780004568/Portfolio/perfil_-_Daniel_Rodriguez_Guerrero_u0znhy.png',
+        avatar: null,
         content:
             'En lo técnico, cuenta con una gran habilidad para UI/UX, buena lógica de programación, manejo eficiente de recursos y una sólida comprensión de bases de datos. En cuanto a habilidades blandas, destaca por su capacidad para el manejo de personal, liderazgo, comunicación efectiva y disposición para coordinar equipos de trabajo.',
     },

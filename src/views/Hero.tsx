@@ -100,7 +100,7 @@ export default async function Hero({ lng }: { lng: string }) {
                 <Box
                     height={'full'}
                     width={{ base: 'full' }}
-                    bgImage={'url(/hero4.png)'}
+                    bgImage={'url(https://res.cloudinary.com/dzlkrqtzo/image/upload/f_webp/q_auto:eco/Portfolio/joaht-cpsd_wkgjev.png)'}
                     bgPos={{ base: 'center bottom' }}
                     bgRepeat={'no-repeat'}
                     bgSize={{base: 'contain'}}

@@ -8,6 +8,7 @@ import i18nConfig from '../i18n/config';
 import type { Metadata } from 'next';
 import { elmsSans, googleSans } from '../fonts';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/next";
 import SmoothScrolling from '@/components/animations/SmoothScrolling';
 
 initServerI18next(i18nConfig);
@@ -40,6 +41,7 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
             <body>
                 <Provider>
                     <SpeedInsights />
+                    <Analytics />
                     <SmoothScrolling>
                         <I18nProvider
                             language={lng}

@@ -4,7 +4,7 @@
         {
             "title": "Mexico Archaeological Zones",
             "description": "A catalog of archaeological zones in Mexico, including history, location, and main characteristics. When I built this project, I put my skills to work creating a unique user experience.",
-            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/v1779810064/Portfolio/zonas-light_tbmpm3.jpg",
+            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/v1780952006/Portfolio/zonas_dhp9zm.jpg",
             "technologies": [
                 { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
                 { "name": "MongoDB", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
@@ -32,7 +32,7 @@
         {
             "title": "Astralis",
             "description": "A 2D video game that follows the adventures of an astronaut. The game was developed with Unity and C#, and it is a personal project that allowed me to explore game development and interactive storytelling, taking me out of my comfort zone.",
-            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/v1779813831/Portfolio/astralis2_ctcxi7.png",
+            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/v1780952006/Portfolio/astralis_rydvuy.webp",
             "technologies": [
                 { "name": "Unity", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" },
                 { "name": "C#", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" }
