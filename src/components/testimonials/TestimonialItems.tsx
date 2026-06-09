@@ -1,7 +1,7 @@
 'use client';
 
-import { pickPalette } from '@/views/Testimonials';
 import { Avatar, Blockquote, Box, Card, Float, Heading, HoverCard, HStack, Marquee, Portal, Stack } from '@chakra-ui/react';
+import { pickPalette } from './palette';
 
 export interface Testimonial {
     name: string;
@@ -11,7 +11,6 @@ export interface Testimonial {
 }
 
 export default function TestimonialItems({ testimonials }: { testimonials: Testimonial[] }) {
-    
     return (
         <>
             {testimonials.map((item, i) => (

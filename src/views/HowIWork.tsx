@@ -3,7 +3,7 @@ import { Box, Button, Container, HStack, Stack, Text, Heading } from '@chakra-ui
 import { LuAppWindow, LuBrain, LuCode, LuTrendingUp } from 'react-icons/lu';
 import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { useLenis } from 'lenis/react';
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import HighlightNumber from '@/components/common/HighlightNumber';
 import { useT } from 'next-i18next/client';
 import { IconType } from 'react-icons';

@@ -1,18 +1,11 @@
 import TestimonialItems, { Testimonial } from '@/components/testimonials/TestimonialItems';
 import {
     Box,
-    Marquee,
-    Heading,
     Container,
+    Heading,
+    Marquee,
 } from '@chakra-ui/react';
 import { getT } from 'next-i18next/server';
-
-export const colorPalette = ['red', 'blue', 'green', 'yellow', 'purple', 'orange'];
-
-export const pickPalette = (name: string) => {
-    const index = name.charCodeAt(0) % colorPalette.length;
-    return colorPalette[index];
-};
 
 export default async function Testimonials({ lng }: { lng: string }) {
     const { t } = await getT('testimonials', { lng });

@@ -84,7 +84,7 @@ export default function Header() {
                         height='16'
                         justifyContent='space-between'
                     >
-                        <Logo />
+                        <Logo height={10} width={10}/>
 
                         <AbsoluteCenter hideBelow={'lg'}>
                             <Navigation />
