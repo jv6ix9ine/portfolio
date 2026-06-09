@@ -16,12 +16,14 @@ import { LuLanguages } from 'react-icons/lu';
 
 const SelectTrigger = () => {
     const select = useSelectContext();
+    const { t } = useT('header');
 
     return (
         <IconButton
             variant='ghost'
             size='sm'
             {...select.getTriggerProps()}
+            aria-label={t('languageSwitcher')}
         >
             <LuLanguages />
         </IconButton>
@@ -59,7 +61,6 @@ export function LanguageSwitcher() {
                 switchLocale(e.value[0]);
             }}
             value={currentLang}
-            aria-label={t('languageSwitcher')}
         >
             <Select.HiddenSelect />
             <Select.Control>

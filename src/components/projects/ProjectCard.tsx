@@ -67,7 +67,10 @@ export default function ProjectCard({
                             backgroundColor={'bg'}
                         >
                             <Avatar.Fallback name={tech.name} />
-                            <Avatar.Image src={tech.icon} />
+                            <Avatar.Image
+                                src={tech.icon}
+                                alt={tech.name}
+                            />
                         </Avatar.Root>
                     ))}
                 </AvatarGroup>

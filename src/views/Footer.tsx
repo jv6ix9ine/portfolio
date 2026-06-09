@@ -74,6 +74,7 @@ export default async function Footer({ lng }: { lng: string }) {
                                 <Link
                                     key={i}
                                     href={option.href}
+                                    aria-label={tHeader(`nav.${option.label}`)}
                                 >
                                     {tHeader(`nav.${option.label}`)}
                                 </Link>
