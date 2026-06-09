@@ -15,9 +15,76 @@ import {
     Text,
     Textarea,
 } from '@chakra-ui/react';
+import { toaster } from '@/components/ui/toaster';
+import { useT } from 'next-i18next/client';
+import { useForm } from 'react-hook-form';
 import { LuCode, LuLayers3, LuRocket, LuSend } from 'react-icons/lu';
 
-export default function Contact() {
+type ContactFormValues = {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+    website: string;
+};
+
+export default function Contact({ lng }: { lng: string }) {
+    const { t } = useT('contact', { lng });
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors, isSubmitting },
+    } = useForm<ContactFormValues>({
+        defaultValues: {
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+            website: '',
+        },
+    });
+
+    const services = (t('services', { returnObjects: true }) as Array<{
+        title: string;
+        description: string;
+        tag: string;
+    }>).map((service, index) => ({
+        ...service,
+        icon: serviceIcons[index],
+    }));
+
+    const onSubmit = async (values: ContactFormValues) => {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+        });
+
+        if (!response.ok) {
+            const result = (await response.json().catch(() => null)) as { error?: string } | null;
+
+            toaster.create({
+                title: t('form.status.errorTitle'),
+                description: result?.error ?? t('form.status.errorDescription'),
+                type: 'error',
+                closable: true,
+            });
+
+            return;
+        }
+
+        reset();
+        toaster.create({
+            title: t('form.status.successTitle'),
+            description: t('form.status.successDescription'),
+            type: 'success',
+            closable: true,
+        });
+    };
+
     return (
         <Box
             as='section'
@@ -32,14 +99,13 @@ export default function Contact() {
                         gap={3}
                         maxW='2xl'
                     >
-                        <Heading size={{ base: '3xl', md: '5xl' }}>Hablemos de tu próximo proyecto</Heading>
+                        <Heading size={{ base: '3xl', md: '5xl' }}>{t('title')}</Heading>
                         <Text
                             fontSize={{ base: 'md', md: 'lg' }}
                             color='fg.muted'
                             fontFamily='var(--font-google-sans)'
                         >
-                            Cuéntame qué necesitas y te respondo con una propuesta clara, viable y enfocada en
-                            resultados.
+                            {t('subtitle')}
                         </Text>
                     </Stack>
 
@@ -60,98 +126,155 @@ export default function Contact() {
                                         size='xl'
                                         fontWeight='semi-bold'
                                     >
-                                        Escríbeme
+                                        {t('form.title')}
                                     </Heading>
                                     <Text
                                         color='fg.muted'
                                         fontFamily='var(--font-google-sans)'
                                     >
-                                        Respondo consultas sobre desarrollo web, interfaces, arquitectura y
-                                        productos digitales.
+                                        {t('form.description')}
                                     </Text>
                                 </Stack>
 
-                                <Stack
-                                    gap={4}
-                                    as='form'
+                                <form
+                                    onSubmit={handleSubmit(onSubmit)}
+                                    noValidate
                                 >
-                                    <SimpleGrid
-                                        columns={{ base: 1, md: 2 }}
-                                        gap={4}
-                                    >
-                                        <Field.Root required>
-                                            <Field.Label>Nombre</Field.Label>
-                                            <Input
-                                                placeholder='Tu nombre'
-                                                rounded='xl'
-                                            />
-                                        </Field.Root>
-                                        <Field.Root required>
-                                            <Field.Label>Email</Field.Label>
-                                            <Input
-                                                placeholder='tu@email.com'
-                                                type='email'
-                                                rounded='xl'
-                                            />
-                                        </Field.Root>
-                                    </SimpleGrid>
-
-                                    <Field.Root required>
-                                        <Field.Label>Asunto</Field.Label>
+                                    <Stack gap={4}>
                                         <Input
-                                            placeholder='¿En qué puedo ayudarte?'
-                                            rounded='xl'
+                                            {...register('website')}
+                                            type='text'
+                                            tabIndex={-1}
+                                            autoComplete='off'
+                                            display='none'
+                                            aria-hidden='true'
                                         />
-                                    </Field.Root>
-
-                                    <Field.Root required>
-                                        <Field.Label>Mensaje</Field.Label>
-                                        <Textarea
-                                            placeholder='Cuéntame sobre tu proyecto, objetivos, tiempos y cualquier detalle importante.'
-                                            minH='180px'
-                                            rounded='xl'
-                                            resize='vertical'
-                                        />
-                                    </Field.Root>
-
-                                    <HStack
-                                        justify='space-between'
-                                        align='center'
-                                        flexWrap='wrap'
-                                        gap={3}
-                                        mt={4}
-                                    >
-                                        <Text
-                                            fontSize='sm'
-                                            color='fg.muted'
-                                            fontFamily='var(--font-google-sans)'
+                                        <SimpleGrid
+                                            columns={{ base: 1, md: 2 }}
+                                            gap={4}
                                         >
-                                            Normalmente respondo en menos de 48 horas.
-                                        </Text>
+                                            <Field.Root
+                                                required
+                                                invalid={Boolean(errors.name)}
+                                            >
+                                                <Field.Label>{t('form.fields.name.label')}</Field.Label>
+                                                <Input
+                                                    {...register('name', {
+                                                        required: t('form.validation.required'),
+                                                        minLength: {
+                                                            value: 2,
+                                                            message: t('form.validation.nameMin'),
+                                                        },
+                                                    })}
+                                                    placeholder={t('form.fields.name.placeholder')}
+                                                    rounded='xl'
+                                                    autoComplete='name'
+                                                />
+                                                <Field.ErrorText>{errors.name?.message}</Field.ErrorText>
+                                            </Field.Root>
+                                            <Field.Root
+                                                required
+                                                invalid={Boolean(errors.email)}
+                                            >
+                                                <Field.Label>{t('form.fields.email.label')}</Field.Label>
+                                                <Input
+                                                    {...register('email', {
+                                                        required: t('form.validation.required'),
+                                                        pattern: {
+                                                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                                            message: t('form.validation.email'),
+                                                        },
+                                                    })}
+                                                    placeholder={t('form.fields.email.placeholder')}
+                                                    type='email'
+                                                    rounded='xl'
+                                                    autoComplete='email'
+                                                />
+                                                <Field.ErrorText>{errors.email?.message}</Field.ErrorText>
+                                            </Field.Root>
+                                        </SimpleGrid>
 
-                                        <Button
-                                            type='submit'
-                                            rounded='2xl'
-                                            colorPalette='gray'
-                                            size='md'
+                                        <Field.Root
+                                            required
+                                            invalid={Boolean(errors.subject)}
                                         >
-                                            Enviar mensaje
-                                            <LuSend />
-                                        </Button>
-                                    </HStack>
-                                </Stack>
+                                            <Field.Label>{t('form.fields.subject.label')}</Field.Label>
+                                            <Input
+                                                {...register('subject', {
+                                                    required: t('form.validation.required'),
+                                                    minLength: {
+                                                        value: 4,
+                                                        message: t('form.validation.subjectMin'),
+                                                    },
+                                                })}
+                                                placeholder={t('form.fields.subject.placeholder')}
+                                                rounded='xl'
+                                                autoComplete='off'
+                                            />
+                                            <Field.ErrorText>{errors.subject?.message}</Field.ErrorText>
+                                        </Field.Root>
+
+                                        <Field.Root
+                                            required
+                                            invalid={Boolean(errors.message)}
+                                        >
+                                            <Field.Label>{t('form.fields.message.label')}</Field.Label>
+                                            <Textarea
+                                                {...register('message', {
+                                                    required: t('form.validation.required'),
+                                                    minLength: {
+                                                        value: 20,
+                                                        message: t('form.validation.messageMin'),
+                                                    },
+                                                })}
+                                                placeholder={t('form.fields.message.placeholder')}
+                                                minH='180px'
+                                                rounded='xl'
+                                                resize='vertical'
+                                            />
+                                            <Field.ErrorText>{errors.message?.message}</Field.ErrorText>
+                                        </Field.Root>
+
+                                        <HStack
+                                            justify='space-between'
+                                            align='center'
+                                            flexWrap='wrap'
+                                            gap={3}
+                                            mt={4}
+                                        >
+                                            <Text
+                                                fontSize='sm'
+                                                color='fg.muted'
+                                                fontFamily='var(--font-google-sans)'
+                                            >
+                                                {t('form.responseTime')}
+                                            </Text>
+
+                                            <Button
+                                                type='submit'
+                                                rounded='2xl'
+                                                colorPalette='gray'
+                                                size='md'
+                                                loading={isSubmitting}
+                                                loadingText={t('form.sending')}
+                                            >
+                                                {t('form.submit')}
+                                                <LuSend />
+                                            </Button>
+                                        </HStack>
+                                    </Stack>
+                                </form>
                             </Stack>
                         </Box>
 
                         <Stack gap={4}>
                             <Stack gap={2}>
-                                <Heading size='xl'>Servicios</Heading>
+                                <Heading size='xl'>{t('servicesTitle')}</Heading>
                                 <Text
                                     color='fg.muted'
                                     fontFamily='var(--font-google-sans)'
                                 >
-                                    Tres frentes de trabajo para construir experiencias sólidas, rápidas y
-                                    escalables.
+                                    {t('servicesSubtitle')}
                                 </Text>
                             </Stack>
 
@@ -224,23 +347,4 @@ export default function Contact() {
     );
 }
 
-const services = [
-    {
-        title: 'Desarrollo Frontend',
-        description: 'Interfaces modernas, accesibles y optimizadas para convertir mejor y cargar más rápido.',
-        tag: 'UI, performance, accesibilidad',
-        icon: LuCode,
-    },
-    {
-        title: 'Arquitectura y Backend',
-        description: 'APIs, integración de servicios, estructuras escalables y decisiones técnicas sólidas.',
-        tag: 'APIs, data, escalabilidad',
-        icon: LuLayers3,
-    },
-    {
-        title: 'Producto y Lanzamiento',
-        description: 'Acompañamiento para convertir una idea en un producto listo para crecer y evolucionar.',
-        tag: 'MVP, iteración, crecimiento',
-        icon: LuRocket,
-    },
-];
+const serviceIcons = [LuCode, LuLayers3, LuRocket] as const;

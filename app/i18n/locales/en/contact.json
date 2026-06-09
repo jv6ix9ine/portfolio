@@ -1,0 +1,61 @@
+{
+  "title": "Let's talk about your next project",
+  "subtitle": "Tell me what you need and I'll reply with a clear, viable proposal focused on results.",
+  "form": {
+    "title": "Write to me",
+    "description": "I respond to inquiries about web development, interfaces, architecture and digital products.",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "you@email.com"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "How can I help you?"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell me about your project, goals, timeline and any important details."
+      }
+    },
+    "responseTime": "I usually reply within 48 hours.",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "validation": {
+      "required": "This field is required.",
+      "email": "Enter a valid email address.",
+      "nameMin": "Enter at least 2 characters.",
+      "subjectMin": "Enter at least 4 characters.",
+      "messageMin": "Tell me a bit more, at least 20 characters."
+    },
+    "status": {
+      "successTitle": "Message sent",
+      "successDescription": "Thanks for reaching out. I will reply as soon as possible.",
+      "errorTitle": "Could not send",
+      "errorDescription": "Please try again in a few minutes."
+    }
+  },
+  "servicesTitle": "Services",
+  "servicesSubtitle": "Three work streams to build solid, fast and scalable experiences.",
+  "services": [
+    {
+      "title": "Frontend Development",
+      "description": "Modern, accessible interfaces optimized to convert better and load faster.",
+      "tag": "UI, performance, accessibility"
+    },
+    {
+      "title": "Architecture and Backend",
+      "description": "APIs, service integration, scalable structures and solid technical decisions.",
+      "tag": "APIs, data, scalability"
+    },
+    {
+      "title": "Product and Launch",
+      "description": "Support to turn an idea into a product ready to grow and evolve.",
+      "tag": "MVP, iteration, growth"
+    }
+  ]
+}

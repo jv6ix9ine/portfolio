@@ -4,7 +4,8 @@ import { getT } from 'next-i18next/server';
 import { FaEnvelope, FaLinkedinIn } from 'react-icons/fa';
 
 export default async function Footer({ lng }: { lng: string }) {
-    const { t } = await getT('header', { lng });
+    const { t: tHeader } = await getT('header', { lng });
+    const { t: tFooter } = await getT('footer', { lng });
 
     return (
         <Box
@@ -29,11 +30,10 @@ export default async function Footer({ lng }: { lng: string }) {
                             <Blockquote.Icon />
                         </Float>
                         <Blockquote.Content fontFamily={'var(--font-google-sans)'}>
-                            Una arquitectura bien definida y la selección de tecnologías adecuadas son clave para
-                            construir sistemas escalables, eficientes y fáciles de mantener.
+                            {tFooter('quote')}
                         </Blockquote.Content>
                         <Blockquote.Caption>
-                            — <cite>Joaht Vera</cite>
+                            — <cite>{tFooter('author')}</cite>
                         </Blockquote.Caption>
                     </Blockquote.Root>
 
@@ -75,7 +75,7 @@ export default async function Footer({ lng }: { lng: string }) {
                                     key={i}
                                     href={option.href}
                                 >
-                                    {t(`nav.${option.label}`)}
+                                    {tHeader(`nav.${option.label}`)}
                                 </Link>
                             ))}
                         </Stack>
@@ -87,7 +87,7 @@ export default async function Footer({ lng }: { lng: string }) {
                         pt={4}
                     >
                         <Text textAlign={'center'}>
-                            {new Date().getFullYear()} © Joaht Vera. All rights reserved. Designed and built by me.
+                            {tFooter('copyright', { year: new Date().getFullYear() })}
                         </Text>
                     </Box>
                 </Stack>

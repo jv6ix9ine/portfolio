@@ -1,0 +1,61 @@
+{
+  "title": "Hablemos de tu próximo proyecto",
+  "subtitle": "Cuéntame qué necesitas y te respondo con una propuesta clara, viable y enfocada en resultados.",
+  "form": {
+    "title": "Escríbeme",
+    "description": "Respondo consultas sobre desarrollo web, interfaces, arquitectura y productos digitales.",
+    "fields": {
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Tu nombre"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "tu@email.com"
+      },
+      "subject": {
+        "label": "Asunto",
+        "placeholder": "¿En qué puedo ayudarte?"
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "Cuéntame sobre tu proyecto, objetivos, tiempos y cualquier detalle importante."
+      }
+    },
+    "responseTime": "Normalmente respondo en menos de 48 horas.",
+    "submit": "Enviar mensaje",
+    "sending": "Enviando...",
+    "validation": {
+      "required": "Este campo es obligatorio.",
+      "email": "Escribe un email válido.",
+      "nameMin": "Escribe al menos 2 caracteres.",
+      "subjectMin": "Escribe al menos 4 caracteres.",
+      "messageMin": "Cuéntame un poco más, mínimo 20 caracteres."
+    },
+    "status": {
+      "successTitle": "Mensaje enviado",
+      "successDescription": "Gracias por escribirme. Te responderé lo antes posible.",
+      "errorTitle": "No se pudo enviar",
+      "errorDescription": "Inténtalo de nuevo en unos minutos."
+    }
+  },
+  "servicesTitle": "Servicios",
+  "servicesSubtitle": "Tres frentes de trabajo para construir experiencias sólidas, rápidas y escalables.",
+  "services": [
+    {
+      "title": "Desarrollo Frontend",
+      "description": "Interfaces modernas, accesibles y optimizadas para convertir mejor y cargar más rápido.",
+      "tag": "UI, performance, accesibilidad"
+    },
+    {
+      "title": "Arquitectura y Backend",
+      "description": "APIs, integración de servicios, estructuras escalables y decisiones técnicas sólidas.",
+      "tag": "APIs, data, escalabilidad"
+    },
+    {
+      "title": "Producto y Lanzamiento",
+      "description": "Acompañamiento para convertir una idea en un producto listo para crecer y evolucionar.",
+      "tag": "MVP, iteración, crecimiento"
+    }
+  ]
+}

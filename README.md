@@ -16,6 +16,19 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contact form
+
+The contact form sends email through Resend from the Next.js API route at `/api/contact`.
+
+Set these environment variables locally and in production:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+CONTACT_FROM_EMAIL="Joaht Vera <contact@joahtvera.com>"
+```
+
+`CONTACT_FROM_EMAIL` must use a domain verified in Resend. Incoming messages are delivered to `contact@joahtvera.com`, and replies go to the visitor's email address.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
