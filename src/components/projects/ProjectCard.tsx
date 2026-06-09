@@ -66,7 +66,10 @@ export default function ProjectCard({
                             colorPalette='gray'
                             backgroundColor={'bg'}
                         >
-                            <Avatar.Fallback name={tech.name} />
+                            <Avatar.Fallback
+                                name={tech.name}
+                                aria-label={tech.name}
+                            />
                             <Avatar.Image
                                 src={tech.icon}
                                 alt={tech.name}
@@ -84,6 +87,7 @@ export default function ProjectCard({
                         <Link
                             href={siteLink}
                             target='_blank'
+                            aria-label={t('visitSite')}
                         >
                             {t('visitSite')} <LuExternalLink />
                         </Link>
@@ -93,7 +97,10 @@ export default function ProjectCard({
                         rounded={'2xl'}
                         asChild
                     >
-                        <Link href={caseStudyLink}>
+                        <Link
+                            href={caseStudyLink}
+                            aria-label={t('caseStudy')}
+                        >
                             {t('caseStudy')} <LuArrowUpRight />
                         </Link>
                     </Button>

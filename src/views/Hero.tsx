@@ -10,7 +10,11 @@ import {
     Flex,
 } from '@chakra-ui/react';
 import { getT } from 'next-i18next/server';
+import Image from 'next/image';
 import { LuArrowDown } from 'react-icons/lu';
+
+const heroImageUrl =
+    'https://res.cloudinary.com/dzlkrqtzo/image/upload/f_webp/q_auto:eco/Portfolio/joaht-cpsd_wkgjev.png';
 
 export default async function Hero({ lng }: { lng: string }) {
     const { t } = await getT('hero', { lng });
@@ -100,12 +104,22 @@ export default async function Hero({ lng }: { lng: string }) {
                 <Box
                     height={'full'}
                     width={{ base: 'full' }}
-                    bgImage={'url(https://res.cloudinary.com/dzlkrqtzo/image/upload/f_webp/q_auto:eco/Portfolio/joaht-cpsd_wkgjev.png)'}
-                    bgPos={{ base: 'center bottom' }}
-                    bgRepeat={'no-repeat'}
-                    bgSize={{base: 'contain'}}
-                    filter={{ base: 'grayscale(100%)' }}
-                ></Box>
+                    position='relative'
+                >
+                    <Image
+                        src={heroImageUrl}
+                        alt={t('altImg')}
+                        fill
+                        priority
+                        fetchPriority='high'
+                        sizes='(max-width: 991px) 100vw, 50vw'
+                        style={{
+                            objectFit: 'contain',
+                            objectPosition: 'center bottom',
+                            filter: 'grayscale(100%)',
+                        }}
+                    />
+                </Box>
             </Flex>
         </Container>
     );

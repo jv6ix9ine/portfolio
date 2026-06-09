@@ -1,4 +1,3 @@
-import '../globals.css';
 import 'lenis/dist/lenis.css';
 import { I18nProvider } from 'next-i18next/client';
 import { initServerI18next, getT, getResources, generateI18nStaticParams } from 'next-i18next/server';
