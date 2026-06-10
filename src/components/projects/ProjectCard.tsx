@@ -83,6 +83,7 @@ export default function ProjectCard({
                     <Button
                         asChild
                         rounded={'2xl'}
+                        title={t('visitSite')}
                     >
                         <Link
                             href={siteLink}
@@ -96,6 +97,7 @@ export default function ProjectCard({
                         variant='ghost'
                         rounded={'2xl'}
                         asChild
+                        title={t('caseStudy')}
                     >
                         <Link
                             href={caseStudyLink}

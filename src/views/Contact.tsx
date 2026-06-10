@@ -257,6 +257,7 @@ export default function Contact({ lng }: { lng: string }) {
                                                 size='md'
                                                 loading={isSubmitting}
                                                 loadingText={t('form.sending')}
+                                                aria-label={t('form.submit')}
                                             >
                                                 {t('form.submit')}
                                                 <LuSend />

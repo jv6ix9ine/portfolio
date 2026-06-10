@@ -1,14 +1,5 @@
 import { RotateWords } from '@/components/animations/RotateWords';
-import {
-    Button,
-    Stack,
-    Heading,
-    Container,
-    Text,
-    ButtonGroup,
-    Box,
-    Flex,
-} from '@chakra-ui/react';
+import { Button, Stack, Heading, Container, Text, ButtonGroup, Box, Flex } from '@chakra-ui/react';
 import { getT } from 'next-i18next/server';
 import Image from 'next/image';
 import { LuArrowDown } from 'react-icons/lu';
@@ -86,8 +77,12 @@ export default async function Hero({ lng }: { lng: string }) {
                             asChild
                             variant='outline'
                             rounded={'2xl'}
+                            aria-label={t('learnMore')}
                         >
-                            <a href='#projects'>
+                            <a
+                                href='#projects'
+                                aria-label={t('learnMore')}
+                            >
                                 {t('learnMore')} <LuArrowDown />
                             </a>
                         </Button>
@@ -95,8 +90,14 @@ export default async function Hero({ lng }: { lng: string }) {
                         <Button
                             asChild
                             rounded={'2xl'}
+                            aria-label={t('contact')}
                         >
-                            <a href='#contact'>{t('contact')}</a>
+                            <a
+                                href='#contact'
+                                aria-label={t('contact')}
+                            >
+                                {t('contact')}
+                            </a>
                         </Button>
                     </ButtonGroup>
                 </Stack>

@@ -43,6 +43,7 @@ export default async function Footer({ lng }: { lng: string }) {
                                 href='https://www.linkedin.com/in/joahtvera/'
                                 target='_blank'
                                 rel='noopener noreferrer'
+                                aria-label='LinkedIn'
                             >
                                 <Icon
                                     size={'lg'}
@@ -55,6 +56,7 @@ export default async function Footer({ lng }: { lng: string }) {
                                 href='mailto:contact@joahtvera.com'
                                 target='_blank'
                                 rel='noopener noreferrer'
+                                aria-label='Email'
                             >
                                 <Icon
                                     size={'lg'}

@@ -183,6 +183,7 @@ export default function HowIWork({ lng }: { lng: string }) {
                                             variant={activeStep === index ? 'solid' : 'outline'}
                                             rounded='xl'
                                             size='lg'
+                                            title={step.title}
                                         >
                                             {<step.icon/>}
                                             {step.title}
