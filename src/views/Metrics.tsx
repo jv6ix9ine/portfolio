@@ -88,7 +88,7 @@ export default function Metrics({ lng }: { lng: string }) {
                         <Text fontSize={'7xl'}>
                             +
                             <AnimatedNumber
-                                value={2000}
+                                value={4000}
                                 start={hasEntered}
                             />
                         </Text>

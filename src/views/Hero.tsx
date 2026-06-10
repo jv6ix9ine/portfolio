@@ -14,7 +14,7 @@ import Image from 'next/image';
 import { LuArrowDown } from 'react-icons/lu';
 
 const heroImageUrl =
-    'https://res.cloudinary.com/dzlkrqtzo/image/upload/f_webp/q_auto:eco/Portfolio/joaht-cpsd_wkgjev.png';
+    'https://res.cloudinary.com/dzlkrqtzo/image/upload/f_webp/q_auto:eco/c_auto,h_1000,w_729/Portfolio/hero-joaht_dt5ibr.png';
 
 export default async function Hero({ lng }: { lng: string }) {
     const { t } = await getT('hero', { lng });

@@ -1,7 +1,5 @@
-import { DownloadTrigger, Button } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 import { ComponentPropsWithoutRef } from 'react';
-
-const data = 'The quick brown fox jumps over the lazy dog';
 
 type DownloadProps = {
     isScrolling: boolean;
@@ -10,21 +8,20 @@ type DownloadProps = {
 
 export default function Download({ isScrolling, t, ...props }: DownloadProps) {
     return (
-        <DownloadTrigger
-            data={data}
-            fileName='sample.txt'
-            mimeType='text/plain'
+        <Button
             asChild
+            variant={isScrolling ? 'ghost' : 'outline'}
+            rounded={'2xl'}
+            colorPalette={'gray'}
+            transition={'all 0.2 easeInOut'}
+            {...props}
         >
-            <Button
-                variant={isScrolling ? 'ghost' : 'outline'}
-                rounded={'2xl'}
-                colorPalette={'gray'}
-                transition={'all 0.2 easeInOut'}
-                {...props}
+            <a
+                href='/CV.pdf'
+                download='Joaht-Vera-CV.pdf'
             >
                 {t('download')}
-            </Button>
-        </DownloadTrigger>
+            </a>
+        </Button>
     );
 }

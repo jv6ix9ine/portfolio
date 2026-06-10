@@ -17,7 +17,6 @@ type HomeProps = {
 export default async function Home({ params }: HomeProps) {
     const { lng } = await params;
     return (
-        <Suspense fallback={<div>Loading...</div>}>
             <Box
                 as='main'
                 bgColor='bg.subtle'
@@ -34,6 +33,5 @@ export default async function Home({ params }: HomeProps) {
                 <Contact lng={lng} />
                 <Footer lng={lng} />
             </Box>
-        </Suspense>
     );
 }

@@ -18,7 +18,7 @@
         {
             "title": "Wavespace",
             "description": "Es una plataforma de streaming de música creada para que otras personas puedan compartir sus creaciones. De una etapa de mi vida influenciada por la música, nace un proyecto para conectar.",
-            "imageUrl": "https://ipcdn-web.apple.com/assets/v2/web/d9a0fc6e-758f-4002-b201-074e5e2684dd",
+            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/v1781024050/Portfolio/placeholder_trzvzx.png",
             "technologies": [
                 { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
                 { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg" },
@@ -26,7 +26,7 @@
                 { "name": ".NET", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg" },
                 { "name": "C#", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" }
             ],
-            "siteLink": "https://archaeological-zones.vercel.app/home",
+            "siteLink": "#",
             "caseStudyLink": "#"
         },
         {

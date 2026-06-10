@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
             },
         ];
     },
-    allowedDevOrigins: ['192.168.100.6'],
+    allowedDevOrigins: ['192.168.100.6', '192.168.0.5'],
     images: {
         remotePatterns: [
             new URL('https://res.cloudinary.com/**'),
