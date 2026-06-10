@@ -15,7 +15,7 @@ export default function Download({ isScrolling, t, ...props }: DownloadProps) {
             colorPalette={'gray'}
             transition={'all 0.2 easeInOut'}
             {...props}
-            title={t('download')}
+            aria-label={t('download')}
         >
             <a
                 href='/CV.pdf'

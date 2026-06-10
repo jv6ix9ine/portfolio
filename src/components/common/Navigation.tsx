@@ -12,9 +12,13 @@ export const MenuOptions = [
     { label: 'contact', href: '#contact', icon: <LuPhone /> },
 ];
 
-export default function Navigation() {
+type NavigationProps = {
+    closeMenu?: (open: boolean) => void;
+};
+
+export default function Navigation({ closeMenu }: NavigationProps) {
     const { t } = useT('header');
-    
+
     return (
         <Stack
             as='nav'
@@ -30,6 +34,7 @@ export default function Navigation() {
                     href={option.href}
                     variant='plain'
                     focusRing='none'
+                    onClick={() => closeMenu?.(false)}
                 >
                     {t(`nav.${option.label}`)}
                 </Link>

@@ -5,7 +5,10 @@ import Navigation from './Navigation';
 
 export default function Menu() {
     return (
-        <Drawer.Root size='full' trapFocus={false} >
+        <Drawer.Root
+            size='full'
+            trapFocus={false}
+        >
             <Drawer.Trigger asChild>
                 <IconButton
                     variant={'ghost'}
@@ -23,14 +26,18 @@ export default function Menu() {
                         <Drawer.Header>
                             <Logo />
                         </Drawer.Header>
-                        <Drawer.Body>
-                            <Box
-                                fontSize={'2xl'}
-                                color={'gray.fg'}
-                            >
-                                <Navigation />
-                            </Box>
-                        </Drawer.Body>
+                        <Drawer.Context>
+                            {(store) => (
+                                <Drawer.Body>
+                                    <Box
+                                        fontSize={'2xl'}
+                                        color={'gray.fg'}
+                                    >
+                                        <Navigation closeMenu={store.setOpen} />
+                                    </Box>
+                                </Drawer.Body>
+                            )}
+                        </Drawer.Context>
                         <Drawer.Footer>
                             <Text
                                 fontSize={'sm'}

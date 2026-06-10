@@ -4,7 +4,7 @@
         {
             "title": "Zonas Arqueológicas de México",
             "description": "Es un catálogo de las zonas arqueológicas en México, incluyendo historia, ubicación y características principales. Cuando desarrollé este proyecto, puse a prueba mis habilidades para crear una experiencia de usuario única.",
-            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/v1780952006/Portfolio/zonas_dhp9zm.jpg",
+            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/f_webp/q_auto:eco/Portfolio/zonas_dhp9zm.jpg",
             "technologies": [
                 { "name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
                 { "name": "MongoDB", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
@@ -32,7 +32,7 @@
         {
             "title": "Astralis",
             "description": "Es un videojuego 2D que sigue las aventuras de una astronauta. El juego fue desarrollado con Unity y C#, y es un proyecto personal que me permitió explorar el desarrollo de juegos y la narrativa interactiva, sacándome de mi zona de confort.",
-            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/v1780952006/Portfolio/astralis_rydvuy.webp",
+            "imageUrl": "https://res.cloudinary.com/dzlkrqtzo/image/upload/f_webp/q_auto:eco/Portfolio/astralis_rydvuy.webp",
             "technologies": [
                 { "name": "Unity", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" },
                 { "name": "C#", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" }

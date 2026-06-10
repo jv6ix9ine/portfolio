@@ -7,11 +7,11 @@ import { Toaster } from './toaster';
 
 export function Provider({ children, ...rest }: ColorModeProviderProps) {
     return (
-        <ColorModeProvider {...rest}>
-            <ChakraProvider value={system}>
+        <ChakraProvider value={system}>
+            <ColorModeProvider {...rest}>
                 {children}
                 <Toaster />
-            </ChakraProvider>
-        </ColorModeProvider>
+            </ColorModeProvider>
+        </ChakraProvider>
     );
 }

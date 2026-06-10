@@ -1,4 +1,12 @@
+import { Center, Loader } from '@chakra-ui/react';
+
 export default function Loading() {
-  // Define the Loading UI here
-  return <div>Loading...</div>
+    return (
+        <Center
+            h='100vh'
+            w='100vw'
+        >
+            <Loader />
+        </Center>
+    );
 }

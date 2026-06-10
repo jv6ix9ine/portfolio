@@ -45,11 +45,13 @@ export default function Contact({ lng }: { lng: string }) {
         },
     });
 
-    const services = (t('services', { returnObjects: true }) as Array<{
-        title: string;
-        description: string;
-        tag: string;
-    }>).map((service, index) => ({
+    const services = (
+        t('services', { returnObjects: true }) as Array<{
+            title: string;
+            description: string;
+            tag: string;
+        }>
+    ).map((service, index) => ({
         ...service,
         icon: serviceIcons[index],
     }));
@@ -279,7 +281,10 @@ export default function Contact({ lng }: { lng: string }) {
                                 </Text>
                             </Stack>
 
-                            <Stack gap={4} height='full' >
+                            <Stack
+                                gap={4}
+                                height='full'
+                            >
                                 {services.map((service) => (
                                     <Box
                                         key={service.title}
@@ -298,6 +303,7 @@ export default function Contact({ lng }: { lng: string }) {
                                                 rounded='xl'
                                                 variant='surface'
                                                 userSelect='none'
+                                                aria-label={service.title}
                                             >
                                                 <Icon as={service.icon} />
                                             </IconButton>
@@ -310,14 +316,7 @@ export default function Contact({ lng }: { lng: string }) {
                                                 >
                                                     {service.description}
                                                 </Text>
-                                                <HStack
-                                                    gap={2}
-                                                    // color='gray.fg'
-                                                    // fontSize='sm'
-                                                    // fontWeight='medium'
-                                                >
-                                                    {/* <Text>{service.tag}</Text>
-                                                        <LuArrowRight size={14} /> */}
+                                                <HStack gap={2}>
                                                     {service.tag.split(',').map((tag) => {
                                                         const value =
                                                             tag.trim().charAt(0).toUpperCase() +
@@ -328,7 +327,6 @@ export default function Contact({ lng }: { lng: string }) {
                                                                 key={tag}
                                                                 variant={'surface'}
                                                                 size='md'
-                                                                // colorPalette={pickPalette(tag.trim())}
                                                             >
                                                                 {value}
                                                             </Badge>

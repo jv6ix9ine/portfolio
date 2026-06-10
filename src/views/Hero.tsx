@@ -118,6 +118,7 @@ export default async function Hero({ lng }: { lng: string }) {
                             objectFit: 'contain',
                             objectPosition: 'center bottom',
                             filter: 'grayscale(100%)',
+                            pointerEvents: 'none',
                         }}
                     />
                 </Box>
