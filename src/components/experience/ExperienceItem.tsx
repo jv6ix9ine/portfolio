@@ -73,8 +73,8 @@ export default function ExperienceItem(exp: ExperienceData) {
                                     colorPalette='gray'
                                     bgColor='bg.subtle'
                                 >
-                                    <Avatar.Fallback name={tech.name} />
-                                    <Avatar.Image src={tech.icon} />
+                                    <Avatar.Fallback name={tech.name} aria-label={tech.name} />
+                                    <Avatar.Image src={tech.icon} alt={tech.name} />
                                 </Avatar.Root>
                             ))}
                         </AvatarGroup>
