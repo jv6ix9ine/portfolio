@@ -18,7 +18,7 @@ export default function Download({ isScrolling, t, ...props }: DownloadProps) {
             aria-label={t('download')}
         >
             <a
-                href='/CV.pdf'
+                href={t('download') === 'Download CV' ? '/CV-en.pdf' : '/CV.pdf'}
                 download='Joaht-Vera-CV.pdf'
                 aria-label={t('download')}
             >
